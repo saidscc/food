@@ -37,8 +37,8 @@ function Catalog() {
     return matchCat && matchQ;
   });
 
-  const setCat = (c?: string) => navigate({ search: (p) => ({ ...p, cat: c }) });
-  const setQ = (v: string) => navigate({ search: (p) => ({ ...p, q: v || undefined }) });
+  const setCat = (c?: string) => navigate({ search: (p: CatalogSearch) => ({ ...p, cat: c }) });
+  const setQ = (v: string) => navigate({ search: (p: CatalogSearch) => ({ ...p, q: v || undefined }) });
 
   return (
     <div className="px-4 pb-16 pt-32 md:pt-40">
