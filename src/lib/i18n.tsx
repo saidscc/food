@@ -1,0 +1,306 @@
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+
+export type Lang = "uz" | "ru" | "en";
+
+export const LANGS: { code: Lang; label: string; flag: string }[] = [
+  { code: "uz", label: "O'zbek", flag: "🇺🇿" },
+  { code: "ru", label: "Русский", flag: "🇷🇺" },
+  { code: "en", label: "English", flag: "🇬🇧" },
+];
+
+type Dict = Record<string, string>;
+
+const uz: Dict = {
+  "nav.home": "Bosh sahifa",
+  "nav.catalog": "Katalog",
+  "nav.tips": "Maslahatlar",
+  "nav.videos": "Videolar",
+  "nav.about": "Loyiha haqida",
+  "nav.start": "Boshlash",
+
+  "hero.badge": "Premium sog'lom hayot platformasi",
+  "hero.title1": "To'g'ri Ovqatlanish",
+  "hero.title2": "Siri",
+  "hero.subtitle":
+    "Ovqatlar tarkibi, kaloriyasi, foydasi va to'g'ri iste'mol vaqtlarini professional darajada o'rganing. Bu shunchaki kalkulyator emas — bu sizning sog'lom hayotingiz.",
+  "hero.cta": "Katalogni ko'rish",
+  "hero.cta2": "Maslahatlar",
+  "hero.stat1": "Ovqatlar",
+  "hero.stat2": "Kategoriya",
+  "hero.stat3": "Foydalanuvchi",
+  "hero.stat4": "Reyting",
+
+  "section.categories": "Top kategoriyalar",
+  "section.categoriesSub": "O'zingizga mos yo'nalishni tanlang",
+  "section.popular": "Mashhur ovqatlar",
+  "section.popularSub": "Foydalanuvchilar eng ko'p tanlagan taomlar",
+  "section.recommend": "Siz uchun tavsiya",
+  "section.recommendSub": "Sog'lom va mazali tanlovlar",
+  "section.tips": "Sog'lom ovqatlanish maslahatlari",
+  "section.tipsSub": "Har kuni amal qiling — natijani his eting",
+  "section.stats": "Bizga ishonishadi",
+  "section.statsSub": "Raqamlarda platforma",
+  "section.video": "Retsept videolari",
+  "section.videoSub": "Ko'ring va tayyorlang",
+  "section.reviews": "Foydalanuvchi fikrlari",
+  "section.reviewsSub": "Ular biz bilan o'zgardi",
+
+  "catalog.title": "Ovqatlar katalogi",
+  "catalog.subtitle": "Har bir taom haqida to'liq ma'lumot — bir joyda",
+  "catalog.search": "Ovqat qidirish...",
+  "catalog.all": "Barchasi",
+  "catalog.empty": "Hech narsa topilmadi",
+  "catalog.results": "ta natija",
+
+  "food.calories": "Kaloriya",
+  "food.protein": "Protein",
+  "food.fat": "Yog'",
+  "food.carbs": "Uglevod",
+  "food.per100": "100g uchun",
+  "food.overview": "Umumiy",
+  "food.nutrition": "Tarkib",
+  "food.benefits": "Foydasi",
+  "food.recipe": "Tayyorlash",
+  "food.forWhom": "Kimlar uchun",
+  "food.notForWhom": "Kimlar uchun emas",
+  "food.whenEat": "Qachon yeyish kerak",
+  "food.dailyRec": "Kunlik tavsiya",
+  "food.ingredients": "Ingredientlar",
+  "food.prepTime": "Tayyorlash vaqti",
+  "food.price": "Narx darajasi",
+  "food.health": "Sog'lomlik darajasi",
+  "food.storage": "Saqlash usuli",
+  "food.vitamins": "Vitaminlar",
+  "food.minerals": "Minerallar",
+  "food.related": "O'xshash ovqatlar",
+  "food.save": "Saqlash",
+  "food.saved": "Saqlandi",
+  "food.share": "Ulashish",
+  "food.min": "daqiqa",
+  "food.back": "Katalogga qaytish",
+  "food.healthScore": "Sog'liq bahosi",
+
+  "cta.title": "Sog'lom hayotni bugun boshlang",
+  "cta.subtitle": "Ro'yxatdan o'ting va shaxsiy tavsiyalar, kaloriya nazorati va progressni oching.",
+  "cta.button": "Bepul boshlash",
+
+  "footer.tagline": "Professional sog'lom ovqatlanish platformasi",
+  "footer.nav": "Sahifalar",
+  "footer.categories": "Kategoriyalar",
+  "footer.contact": "Aloqa",
+  "footer.rights": "Barcha huquqlar himoyalangan",
+  "footer.telegram": "Telegram kanal",
+  "footer.instagram": "Instagram",
+
+  "common.viewAll": "Barchasini ko'rish",
+  "common.loading": "Yuklanmoqda...",
+  "common.foods": "ovqat",
+};
+
+const ru: Dict = {
+  "nav.home": "Главная",
+  "nav.catalog": "Каталог",
+  "nav.tips": "Советы",
+  "nav.videos": "Видео",
+  "nav.about": "О проекте",
+  "nav.start": "Начать",
+
+  "hero.badge": "Премиум платформа здорового образа жизни",
+  "hero.title1": "Секрет Правильного",
+  "hero.title2": "Питания",
+  "hero.subtitle":
+    "Изучайте состав, калорийность, пользу и правильное время употребления блюд на профессиональном уровне. Это не просто калькулятор — это ваша здоровая жизнь.",
+  "hero.cta": "Смотреть каталог",
+  "hero.cta2": "Советы",
+  "hero.stat1": "Блюд",
+  "hero.stat2": "Категорий",
+  "hero.stat3": "Пользователей",
+  "hero.stat4": "Рейтинг",
+
+  "section.categories": "Топ категории",
+  "section.categoriesSub": "Выберите подходящее направление",
+  "section.popular": "Популярные блюда",
+  "section.popularSub": "Самый частый выбор пользователей",
+  "section.recommend": "Рекомендации для вас",
+  "section.recommendSub": "Здоровые и вкусные варианты",
+  "section.tips": "Советы по здоровому питанию",
+  "section.tipsSub": "Применяйте каждый день — почувствуйте результат",
+  "section.stats": "Нам доверяют",
+  "section.statsSub": "Платформа в цифрах",
+  "section.video": "Видео рецепты",
+  "section.videoSub": "Смотрите и готовьте",
+  "section.reviews": "Отзывы пользователей",
+  "section.reviewsSub": "Они изменились вместе с нами",
+
+  "catalog.title": "Каталог блюд",
+  "catalog.subtitle": "Полная информация о каждом блюде — в одном месте",
+  "catalog.search": "Поиск блюда...",
+  "catalog.all": "Все",
+  "catalog.empty": "Ничего не найдено",
+  "catalog.results": "результатов",
+
+  "food.calories": "Калории",
+  "food.protein": "Белки",
+  "food.fat": "Жиры",
+  "food.carbs": "Углеводы",
+  "food.per100": "на 100г",
+  "food.overview": "Обзор",
+  "food.nutrition": "Состав",
+  "food.benefits": "Польза",
+  "food.recipe": "Приготовление",
+  "food.forWhom": "Для кого",
+  "food.notForWhom": "Кому не рекомендуется",
+  "food.whenEat": "Когда есть",
+  "food.dailyRec": "Дневная норма",
+  "food.ingredients": "Ингредиенты",
+  "food.prepTime": "Время приготовления",
+  "food.price": "Уровень цены",
+  "food.health": "Уровень пользы",
+  "food.storage": "Способ хранения",
+  "food.vitamins": "Витамины",
+  "food.minerals": "Минералы",
+  "food.related": "Похожие блюда",
+  "food.save": "Сохранить",
+  "food.saved": "Сохранено",
+  "food.share": "Поделиться",
+  "food.min": "мин",
+  "food.back": "Вернуться в каталог",
+  "food.healthScore": "Оценка пользы",
+
+  "cta.title": "Начните здоровую жизнь сегодня",
+  "cta.subtitle": "Зарегистрируйтесь и откройте персональные рекомендации, контроль калорий и прогресс.",
+  "cta.button": "Начать бесплатно",
+
+  "footer.tagline": "Профессиональная платформа здорового питания",
+  "footer.nav": "Страницы",
+  "footer.categories": "Категории",
+  "footer.contact": "Контакты",
+  "footer.rights": "Все права защищены",
+  "footer.telegram": "Telegram канал",
+  "footer.instagram": "Instagram",
+
+  "common.viewAll": "Смотреть все",
+  "common.loading": "Загрузка...",
+  "common.foods": "блюд",
+};
+
+const en: Dict = {
+  "nav.home": "Home",
+  "nav.catalog": "Catalog",
+  "nav.tips": "Tips",
+  "nav.videos": "Videos",
+  "nav.about": "About",
+  "nav.start": "Get Started",
+
+  "hero.badge": "Premium healthy-living platform",
+  "hero.title1": "The Secret of",
+  "hero.title2": "Right Nutrition",
+  "hero.subtitle":
+    "Learn the composition, calories, benefits and best timing of every meal on a professional level. This is not just a calculator — it's your healthy life.",
+  "hero.cta": "Browse Catalog",
+  "hero.cta2": "Tips",
+  "hero.stat1": "Meals",
+  "hero.stat2": "Categories",
+  "hero.stat3": "Users",
+  "hero.stat4": "Rating",
+
+  "section.categories": "Top Categories",
+  "section.categoriesSub": "Choose the direction that fits you",
+  "section.popular": "Popular Meals",
+  "section.popularSub": "Most chosen by our users",
+  "section.recommend": "Recommended for You",
+  "section.recommendSub": "Healthy and delicious choices",
+  "section.tips": "Healthy Eating Tips",
+  "section.tipsSub": "Apply daily — feel the result",
+  "section.stats": "Trusted by Many",
+  "section.statsSub": "The platform in numbers",
+  "section.video": "Recipe Videos",
+  "section.videoSub": "Watch and cook",
+  "section.reviews": "User Reviews",
+  "section.reviewsSub": "They changed with us",
+
+  "catalog.title": "Food Catalog",
+  "catalog.subtitle": "Complete information on every meal — in one place",
+  "catalog.search": "Search meals...",
+  "catalog.all": "All",
+  "catalog.empty": "Nothing found",
+  "catalog.results": "results",
+
+  "food.calories": "Calories",
+  "food.protein": "Protein",
+  "food.fat": "Fat",
+  "food.carbs": "Carbs",
+  "food.per100": "per 100g",
+  "food.overview": "Overview",
+  "food.nutrition": "Nutrition",
+  "food.benefits": "Benefits",
+  "food.recipe": "Recipe",
+  "food.forWhom": "Best for",
+  "food.notForWhom": "Not recommended for",
+  "food.whenEat": "When to eat",
+  "food.dailyRec": "Daily recommendation",
+  "food.ingredients": "Ingredients",
+  "food.prepTime": "Prep time",
+  "food.price": "Price level",
+  "food.health": "Health level",
+  "food.storage": "Storage",
+  "food.vitamins": "Vitamins",
+  "food.minerals": "Minerals",
+  "food.related": "Related foods",
+  "food.save": "Save",
+  "food.saved": "Saved",
+  "food.share": "Share",
+  "food.min": "min",
+  "food.back": "Back to catalog",
+  "food.healthScore": "Health score",
+
+  "cta.title": "Start your healthy life today",
+  "cta.subtitle": "Sign up and unlock personal recommendations, calorie control and progress tracking.",
+  "cta.button": "Start for free",
+
+  "footer.tagline": "Professional healthy-eating platform",
+  "footer.nav": "Pages",
+  "footer.categories": "Categories",
+  "footer.contact": "Contact",
+  "footer.rights": "All rights reserved",
+  "footer.telegram": "Telegram channel",
+  "footer.instagram": "Instagram",
+
+  "common.viewAll": "View all",
+  "common.loading": "Loading...",
+  "common.foods": "meals",
+};
+
+const DICTS: Record<Lang, Dict> = { uz, ru, en };
+
+interface I18nContextValue {
+  lang: Lang;
+  setLang: (l: Lang) => void;
+  t: (key: string) => string;
+}
+
+const I18nContext = createContext<I18nContextValue | null>(null);
+
+export function I18nProvider({ children }: { children: ReactNode }) {
+  const [lang, setLangState] = useState<Lang>("uz");
+
+  useEffect(() => {
+    const stored = localStorage.getItem("lang") as Lang | null;
+    if (stored && DICTS[stored]) setLangState(stored);
+  }, []);
+
+  const setLang = (l: Lang) => {
+    setLangState(l);
+    localStorage.setItem("lang", l);
+  };
+
+  const t = (key: string) => DICTS[lang][key] ?? DICTS.uz[key] ?? key;
+
+  return <I18nContext.Provider value={{ lang, setLang, t }}>{children}</I18nContext.Provider>;
+}
+
+export function useI18n() {
+  const ctx = useContext(I18nContext);
+  if (!ctx) throw new Error("useI18n must be used within I18nProvider");
+  return ctx;
+}
