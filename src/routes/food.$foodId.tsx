@@ -9,7 +9,7 @@ import {
 import { useI18n } from "@/lib/i18n";
 import { Reveal } from "@/components/Reveal";
 import { FoodCard } from "@/components/FoodCard";
-import { getFood, foods } from "@/lib/foods";
+import { getFood, foods, type Food } from "@/lib/foods";
 
 export const Route = createFileRoute("/food/$foodId")({
   loader: ({ params }) => {
@@ -107,7 +107,7 @@ function FoodDetail() {
           <div>
             <Reveal>
               <div className="flex flex-wrap gap-2">
-                {food.categories.map((c) => (
+                {food.categories.map((c: string) => (
                   <span key={c} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">{c}</span>
                 ))}
               </div>
@@ -185,7 +185,7 @@ function FoodDetail() {
                 {tab === "benefits" && (
                   <div className="space-y-5">
                     <ul className="space-y-3">
-                      {food.benefits[lang].map((b, i) => (
+                      {food.benefits[lang].map((b: string, i: number) => (
                         <li key={i} className="glass card-glow flex items-start gap-3 rounded-2xl p-4">
                           <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/15"><Check className="h-4 w-4 text-primary" /></span>
                           <span className="text-foreground/90">{b}</span>
@@ -210,7 +210,7 @@ function FoodDetail() {
                     <div>
                       <h4 className="mb-3 font-semibold">{t("food.ingredients")}</h4>
                       <div className="flex flex-wrap gap-2">
-                        {food.ingredients[lang].map((ing, i) => (
+                        {food.ingredients[lang].map((ing: string, i: number) => (
                           <span key={i} className="glass rounded-full px-3 py-1.5 text-sm">{ing}</span>
                         ))}
                       </div>
@@ -218,7 +218,7 @@ function FoodDetail() {
                     <div>
                       <h4 className="mb-3 font-semibold">{t("food.recipe")}</h4>
                       <ol className="space-y-3">
-                        {food.recipe[lang].map((step, i) => (
+                        {food.recipe[lang].map((step: string, i: number) => (
                           <li key={i} className="glass card-glow flex items-start gap-3 rounded-2xl p-4">
                             <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold text-primary-foreground" style={{ background: "var(--gradient-primary)" }}>{i + 1}</span>
                             <span className="text-foreground/90">{step}</span>
@@ -277,7 +277,7 @@ function TagBlock({ title, tags }: { title: string; tags: string[] }) {
   );
 }
 
-function MacroBars({ food, t }: { food: ReturnType<typeof getFood> & object; t: (k: string) => string }) {
+function MacroBars({ food, t }: { food: Food; t: (k: string) => string }) {
   const total = food.protein + food.fat + food.carbs || 1;
   const bars = [
     { label: t("food.protein"), value: food.protein, color: "var(--chart-3)" },
