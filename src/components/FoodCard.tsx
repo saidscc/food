@@ -1,8 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Flame, Clock, Star, ArrowUpRight } from "lucide-react";
+import { Flame, Clock, Star, Plus } from "lucide-react";
+import { toast } from "sonner";
 import { useI18n } from "@/lib/i18n";
-import type { Food } from "@/lib/foods";
+import { useCart } from "@/lib/cart";
+import { getPrice, formatPrice, type Food } from "@/lib/foods";
 
 export function FoodCard({ food, index = 0 }: { food: Food; index?: number }) {
   const { t, lang } = useI18n();
