@@ -95,6 +95,60 @@ export type Database = {
         }
         Relationships: []
       }
+      telegram_carts: {
+        Row: {
+          chat_id: number
+          items: Json
+          updated_at: string
+        }
+        Insert: {
+          chat_id: number
+          items?: Json
+          updated_at?: string
+        }
+        Update: {
+          chat_id?: number
+          items?: Json
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      telegram_users: {
+        Row: {
+          address: string | null
+          chat_id: number
+          created_at: string
+          lang: string
+          name: string | null
+          phone: string | null
+          state: string | null
+          state_data: Json | null
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          chat_id: number
+          created_at?: string
+          lang?: string
+          name?: string | null
+          phone?: string | null
+          state?: string | null
+          state_data?: Json | null
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          chat_id?: number
+          created_at?: string
+          lang?: string
+          name?: string | null
+          phone?: string | null
+          state?: string | null
+          state_data?: Json | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string

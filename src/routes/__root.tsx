@@ -13,6 +13,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ThemeProvider } from "../lib/theme";
 import { I18nProvider } from "../lib/i18n";
+import { AuthProvider } from "../lib/useAuth";
+import { CartProvider } from "../lib/cart";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { AnimatedBackground } from "../components/AnimatedBackground";
@@ -132,14 +134,18 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <I18nProvider>
-          <AnimatedBackground />
-          <Navbar />
-          <main className="min-h-screen">
-            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-            <Outlet />
-          </main>
-          <Footer />
-          <Toaster position="top-center" />
+          <AuthProvider>
+            <CartProvider>
+              <AnimatedBackground />
+              <Navbar />
+              <main className="min-h-screen">
+                {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+                <Outlet />
+              </main>
+              <Footer />
+              <Toaster position="top-center" />
+            </CartProvider>
+          </AuthProvider>
         </I18nProvider>
       </ThemeProvider>
     </QueryClientProvider>
