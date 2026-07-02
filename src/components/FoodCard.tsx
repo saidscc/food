@@ -41,9 +41,14 @@ export function FoodCard({ food, index = 0 }: { food: Food; index?: number }) {
           <div className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full bg-gold/90 px-3 py-1 text-xs font-bold text-gold-foreground backdrop-blur">
             <Star className="h-3 w-3 fill-current" /> {food.rating}
           </div>
-          <div className="absolute right-4 top-4 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" style={{ background: "var(--gradient-primary)" }}>
-            <ArrowUpRight className="h-4 w-4 text-primary-foreground" />
-          </div>
+          <button
+            onClick={addToCart}
+            aria-label={t("food.addToCart")}
+            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            style={{ background: "var(--gradient-primary)" }}
+          >
+            <Plus className="h-4 w-4 text-primary-foreground" />
+          </button>
 
           <div className="absolute bottom-3 left-4 right-4 flex items-center gap-3 text-xs font-medium text-white/90">
             <span className="flex items-center gap-1"><Flame className="h-3.5 w-3.5 text-gold" /> {food.calories} kcal</span>
