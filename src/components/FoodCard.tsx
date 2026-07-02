@@ -57,7 +57,10 @@ export function FoodCard({ food, index = 0 }: { food: Food; index?: number }) {
         </div>
 
         <div className="p-5">
-          <h3 className="text-lg font-bold leading-tight transition-colors group-hover:text-primary">{food.name[lang]}</h3>
+          <div className="flex items-center justify-between gap-2">
+            <h3 className="text-lg font-bold leading-tight transition-colors group-hover:text-primary">{food.name[lang]}</h3>
+            <span className="shrink-0 text-sm font-extrabold text-gradient">{formatPrice(getPrice(food.id))}</span>
+          </div>
           <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">{food.short[lang]}</p>
 
           <div className="mt-4 grid grid-cols-3 gap-2">
