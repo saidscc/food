@@ -8,6 +8,14 @@ import { getPrice, formatPrice, type Food } from "@/lib/foods";
 
 export function FoodCard({ food, index = 0 }: { food: Food; index?: number }) {
   const { t, lang } = useI18n();
+  const { add } = useCart();
+
+  const addToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    add(food.id);
+    toast.success(t("food.added"));
+  };
 
   return (
     <motion.div
