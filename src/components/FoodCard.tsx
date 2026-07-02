@@ -1,11 +1,21 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Flame, Clock, Star, ArrowUpRight } from "lucide-react";
+import { Flame, Clock, Star, Plus } from "lucide-react";
+import { toast } from "sonner";
 import { useI18n } from "@/lib/i18n";
-import type { Food } from "@/lib/foods";
+import { useCart } from "@/lib/cart";
+import { getPrice, formatPrice, type Food } from "@/lib/foods";
 
 export function FoodCard({ food, index = 0 }: { food: Food; index?: number }) {
   const { t, lang } = useI18n();
+  const { add } = useCart();
+
+  const addToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    add(food.id);
+    toast.success(t("food.added"));
+  };
 
   return (
     <motion.div
@@ -31,9 +41,14 @@ export function FoodCard({ food, index = 0 }: { food: Food; index?: number }) {
           <div className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full bg-gold/90 px-3 py-1 text-xs font-bold text-gold-foreground backdrop-blur">
             <Star className="h-3 w-3 fill-current" /> {food.rating}
           </div>
-          <div className="absolute right-4 top-4 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" style={{ background: "var(--gradient-primary)" }}>
-            <ArrowUpRight className="h-4 w-4 text-primary-foreground" />
-          </div>
+          <button
+            onClick={addToCart}
+            aria-label={t("food.addToCart")}
+            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            style={{ background: "var(--gradient-primary)" }}
+          >
+            <Plus className="h-4 w-4 text-primary-foreground" />
+          </button>
 
           <div className="absolute bottom-3 left-4 right-4 flex items-center gap-3 text-xs font-medium text-white/90">
             <span className="flex items-center gap-1"><Flame className="h-3.5 w-3.5 text-gold" /> {food.calories} kcal</span>
@@ -42,7 +57,10 @@ export function FoodCard({ food, index = 0 }: { food: Food; index?: number }) {
         </div>
 
         <div className="p-5">
-          <h3 className="text-lg font-bold leading-tight transition-colors group-hover:text-primary">{food.name[lang]}</h3>
+          <div className="flex items-center justify-between gap-2">
+            <h3 className="text-lg font-bold leading-tight transition-colors group-hover:text-primary">{food.name[lang]}</h3>
+            <span className="shrink-0 text-sm font-extrabold text-gradient">{formatPrice(getPrice(food.id))}</span>
+          </div>
           <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">{food.short[lang]}</p>
 
           <div className="mt-4 grid grid-cols-3 gap-2">

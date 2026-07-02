@@ -5,6 +5,12 @@ import chickenImg from "@/assets/food-chicken.jpg";
 import oatmealImg from "@/assets/food-oatmeal.jpg";
 import saladImg from "@/assets/food-salad.jpg";
 import smoothieImg from "@/assets/food-smoothie.jpg";
+import steakImg from "@/assets/food-steak.jpg";
+import sushiImg from "@/assets/food-sushi.jpg";
+import avocadoToastImg from "@/assets/food-avocado-toast.jpg";
+import soupImg from "@/assets/food-soup.jpg";
+import wrapImg from "@/assets/food-wrap.jpg";
+import parfaitImg from "@/assets/food-parfait.jpg";
 import type { Lang } from "./i18n";
 
 export type Loc = Record<Lang, string>;
@@ -214,7 +220,163 @@ export const foods: Food[] = [
     ingredients: { uz: ["Rezavorlar", "Banan", "Yogurt", "Protein kukuni", "Asal"], ru: ["Ягоды", "Банан", "Йогурт", "Протеин", "Мёд"], en: ["Berries", "Banana", "Yogurt", "Protein powder", "Honey"] },
     recipe: { uz: ["Barcha masalliqni blenderga soling", "30 soniya aralashtiring", "Stakanga quying", "Rezavor bilan bezang", "Darhol iching"], ru: ["Сложите всё в блендер", "Взбивайте 30 секунд", "Налейте в стакан", "Украсьте ягодами", "Пейте сразу"], en: ["Add everything to a blender", "Blend for 30 seconds", "Pour into a glass", "Top with berries", "Drink immediately"] },
   },
+  {
+    id: "grilled-steak",
+    image: steakImg,
+    categories: ["protein", "sport", "weightgain", "dinner"],
+    name: { uz: "Grildagi bifshteks", ru: "Стейк на гриле", en: "Grilled Steak" },
+    short: { uz: "Temir va proteinga boy premium go'sht", ru: "Премиальное мясо, богатое железом и белком", en: "Premium meat rich in iron and protein" },
+    calories: 271, protein: 25, fat: 19, carbs: 2, prepTime: 22, price: 3, healthScore: 82, rating: 4.9,
+    vitamins: ["B12", "B6", "B3"], minerals: ["Temir", "Rux", "Selen"],
+    description: {
+      uz: "Yumshoq mol go'shti bifshteks — mushak massasi va energiya uchun ideal. Grilda pishirilgan sabzavotlar bilan beriladi.",
+      ru: "Нежный говяжий стейк — идеален для набора мышечной массы и энергии. Подаётся с овощами на гриле.",
+      en: "Tender beef steak — ideal for muscle mass and energy. Served with grilled vegetables.",
+    },
+    benefits: { uz: ["Mushak o'sishi", "Qonsizlikka qarshi", "Energiya beradi", "Immunitetni mustahkamlaydi"], ru: ["Рост мышц", "Против анемии", "Даёт энергию", "Укрепляет иммунитет"], en: ["Muscle growth", "Fights anemia", "Boosts energy", "Strengthens immunity"] },
+    forWhom: { uz: "Sportchilar, vazn olmoqchilar", ru: "Спортсмены, набирающие вес", en: "Athletes, those gaining weight" },
+    notForWhom: { uz: "Podagra va yurak kasalliklarida cheklang", ru: "Ограничить при подагре и болезнях сердца", en: "Limit with gout and heart disease" },
+    whenEat: { uz: "Kechki ovqat", ru: "Ужин", en: "Dinner" },
+    dailyRec: { uz: "Haftasiga 2 marta, 200g", ru: "2 раза в неделю, 200г", en: "2 times a week, 200g" },
+    storage: { uz: "Muzlatgichda 2 kun", ru: "В холодильнике 2 дня", en: "2 days in the fridge" },
+    ingredients: { uz: ["Mol go'shti 250g", "Rozmarin", "Sarimsoq", "Zaytun moyi", "Sabzavotlar"], ru: ["Говядина 250г", "Розмарин", "Чеснок", "Оливковое масло", "Овощи"], en: ["Beef 250g", "Rosemary", "Garlic", "Olive oil", "Vegetables"] },
+    recipe: { uz: ["Go'shtni xona haroratiga keltiring", "Tuz va qalampir seping", "Qaynoq grilda pishiring", "5 daqiqa dam bering", "Sabzavot bilan bering"], ru: ["Доведите мясо до комнатной температуры", "Посолите и поперчите", "Обжарьте на горячем гриле", "Дайте отдохнуть 5 минут", "Подавайте с овощами"], en: ["Bring meat to room temperature", "Season with salt and pepper", "Sear on a hot grill", "Rest for 5 minutes", "Serve with vegetables"] },
+  },
+  {
+    id: "sushi-platter",
+    image: sushiImg,
+    categories: ["healthy", "protein", "lunch", "dinner"],
+    name: { uz: "Sushi to'plami", ru: "Сет суши", en: "Sushi Platter" },
+    short: { uz: "Yengil va nafis premium taom", ru: "Лёгкое и изысканное премиум блюдо", en: "Light and refined premium dish" },
+    calories: 190, protein: 9, fat: 5, carbs: 28, prepTime: 30, price: 3, healthScore: 89, rating: 4.9,
+    vitamins: ["B12", "D", "A"], minerals: ["Yod", "Omega-3", "Magniy"],
+    description: {
+      uz: "Yangi losos, avokado va guruch bilan tayyorlangan sushi to'plami — dengiz mahsulotlarining nafis uyg'unligi.",
+      ru: "Сет суши со свежим лососем, авокадо и рисом — изысканное сочетание морепродуктов.",
+      en: "A sushi set with fresh salmon, avocado and rice — a refined seafood combination.",
+    },
+    benefits: { uz: ["Omega-3 manbai", "Kam kaloriyali", "Miya uchun foydali", "Yengil hazm bo'ladi"], ru: ["Источник Omega-3", "Низкокалорийно", "Полезно для мозга", "Легко усваивается"], en: ["Source of Omega-3", "Low calorie", "Good for the brain", "Easy to digest"] },
+    forWhom: { uz: "Sog'lom ovqatlanuvchilar", ru: "Приверженцы ЗОЖ", en: "Healthy-eating fans" },
+    notForWhom: { uz: "Homilador ayollar (xom baliq)", ru: "Беременные (сырая рыба)", en: "Pregnant women (raw fish)" },
+    whenEat: { uz: "Tushlik yoki kechki ovqat", ru: "Обед или ужин", en: "Lunch or dinner" },
+    dailyRec: { uz: "Haftasiga 1–2 marta", ru: "1–2 раза в неделю", en: "1–2 times a week" },
+    storage: { uz: "Tayyorlab darhol yeng", ru: "Есть сразу", en: "Eat fresh" },
+    ingredients: { uz: ["Losos", "Guruch", "Avokado", "Nori", "Soya sousi"], ru: ["Лосось", "Рис", "Авокадо", "Нори", "Соевый соус"], en: ["Salmon", "Rice", "Avocado", "Nori", "Soy sauce"] },
+    recipe: { uz: ["Guruchni pishiring", "Nori ustiga yoying", "Masalliqni joylang", "Rulon qiling", "Bo'laklarga kesing"], ru: ["Отварите рис", "Разложите на нори", "Выложите начинку", "Сверните рулет", "Нарежьте на кусочки"], en: ["Cook the rice", "Spread over nori", "Add filling", "Roll it up", "Cut into pieces"] },
+  },
+  {
+    id: "avocado-toast",
+    image: avocadoToastImg,
+    categories: ["breakfast", "vegetarian", "healthy", "student"],
+    name: { uz: "Avokadoli tost", ru: "Тост с авокадо", en: "Avocado Toast" },
+    short: { uz: "Foydali yog'larga boy nonushta", ru: "Завтрак, богатый полезными жирами", en: "Breakfast rich in healthy fats" },
+    calories: 250, protein: 10, fat: 15, carbs: 22, prepTime: 10, price: 2, healthScore: 91, rating: 4.8,
+    vitamins: ["E", "K", "B9"], minerals: ["Kaliy", "Magniy", "Folat"],
+    description: {
+      uz: "Bug'doy nonidagi avokado va qaynatilgan tuxum — sog'lom yog'lar va protein bilan kuchli nonushta.",
+      ru: "Авокадо и яйцо-пашот на цельнозерновом хлебе — мощный завтрак с полезными жирами и белком.",
+      en: "Avocado and poached egg on whole-grain bread — a powerful breakfast with healthy fats and protein.",
+    },
+    benefits: { uz: ["Uzoq to'qlik", "Yurak salomatligi", "Terini yaxshilaydi", "Energiya beradi"], ru: ["Долгая сытость", "Здоровье сердца", "Улучшает кожу", "Даёт энергию"], en: ["Long fullness", "Heart health", "Improves skin", "Gives energy"] },
+    forWhom: { uz: "Hamma, studentlar", ru: "Все, студенты", en: "Everyone, students" },
+    notForWhom: { uz: "Glyutenga chidamsizlar", ru: "Непереносимость глютена", en: "Gluten intolerance" },
+    whenEat: { uz: "Nonushta", ru: "Завтрак", en: "Breakfast" },
+    dailyRec: { uz: "Ertalab 1 porsiya", ru: "1 порция утром", en: "1 morning serving" },
+    storage: { uz: "Tayyorlab darhol yeng", ru: "Есть сразу", en: "Eat fresh" },
+    ingredients: { uz: ["Bug'doy noni", "Avokado", "Tuxum", "Urug'lar", "Limon"], ru: ["Цельнозерновой хлеб", "Авокадо", "Яйцо", "Семена", "Лимон"], en: ["Whole-grain bread", "Avocado", "Egg", "Seeds", "Lemon"] },
+    recipe: { uz: ["Nonni qizdiring", "Avokadoni ezing", "Non ustiga yoying", "Tuxumni qaynating", "Urug' seping"], ru: ["Подрумяньте хлеб", "Разомните авокадо", "Намажьте на хлеб", "Приготовьте яйцо", "Посыпьте семенами"], en: ["Toast the bread", "Mash the avocado", "Spread on bread", "Poach the egg", "Sprinkle seeds"] },
+  },
+  {
+    id: "lentil-soup",
+    image: soupImg,
+    categories: ["healthy", "vegetarian", "weightloss", "lunch", "dinner"],
+    name: { uz: "Yasmiq sho'rvasi", ru: "Чечевичный суп", en: "Lentil Soup" },
+    short: { uz: "Isituvchi va to'yimli sho'rva", ru: "Согревающий и сытный суп", en: "Warming and filling soup" },
+    calories: 180, protein: 12, fat: 4, carbs: 28, prepTime: 35, price: 1, healthScore: 95, rating: 4.7,
+    vitamins: ["B1", "B6", "B9"], minerals: ["Temir", "Magniy", "Kaliy"],
+    description: {
+      uz: "Yasmiq va sabzavotlardan tayyorlangan sho'rva — o'simlik proteini va tolaga juda boy.",
+      ru: "Суп из чечевицы и овощей — очень богат растительным белком и клетчаткой.",
+      en: "A soup of lentils and vegetables — very rich in plant protein and fiber.",
+    },
+    benefits: { uz: ["Uzoq to'qlik", "Hazmni yaxshilaydi", "Qonsizlikka qarshi", "Ozishga yordam"], ru: ["Долгая сытость", "Улучшает пищеварение", "Против анемии", "Помогает похудеть"], en: ["Long fullness", "Improves digestion", "Fights anemia", "Aids weight loss"] },
+    forWhom: { uz: "Vegetarianlar, ozuvchilar", ru: "Вегетарианцы, худеющие", en: "Vegetarians, dieters" },
+    notForWhom: { uz: "Meteorizmga moyillar (ehtiyot)", ru: "Склонные к метеоризму (осторожно)", en: "Prone to bloating (caution)" },
+    whenEat: { uz: "Tushlik yoki kechki ovqat", ru: "Обед или ужин", en: "Lunch or dinner" },
+    dailyRec: { uz: "Kuniga 1 kosa (300ml)", ru: "1 миска в день (300мл)", en: "1 bowl per day (300ml)" },
+    storage: { uz: "Muzlatgichda 3 kun", ru: "В холодильнике 3 дня", en: "3 days in the fridge" },
+    ingredients: { uz: ["Yasmiq 150g", "Sabzi", "Piyoz", "Sarimsoq", "Ko'katlar"], ru: ["Чечевица 150г", "Морковь", "Лук", "Чеснок", "Зелень"], en: ["Lentils 150g", "Carrot", "Onion", "Garlic", "Greens"] },
+    recipe: { uz: ["Sabzavotlarni qovuring", "Yasmiq va suv qo'shing", "25 daqiqa qaynating", "Ziravor soling", "Ko'kat bilan bering"], ru: ["Обжарьте овощи", "Добавьте чечевицу и воду", "Варите 25 минут", "Добавьте специи", "Подавайте с зеленью"], en: ["Sauté the vegetables", "Add lentils and water", "Simmer for 25 minutes", "Add spices", "Serve with greens"] },
+  },
+  {
+    id: "chicken-wrap",
+    image: wrapImg,
+    categories: ["fast", "protein", "lunch", "student"],
+    name: { uz: "Tovuqli wrap", ru: "Ролл с курицей", en: "Chicken Wrap" },
+    short: { uz: "Tez va to'yimli protein taom", ru: "Быстрое и сытное белковое блюдо", en: "Quick and filling protein meal" },
+    calories: 320, protein: 24, fat: 11, carbs: 32, prepTime: 12, price: 2, healthScore: 84, rating: 4.7,
+    vitamins: ["B3", "B6", "C"], minerals: ["Fosfor", "Kaliy", "Selen"],
+    description: {
+      uz: "Grilda pishirilgan tovuq, yangi sabzavotlar va sous bilan lavash roll — tez tushlik uchun ideal.",
+      ru: "Ролл из лаваша с курицей на гриле, свежими овощами и соусом — идеален для быстрого обеда.",
+      en: "A flatbread wrap with grilled chicken, fresh vegetables and sauce — ideal for a quick lunch.",
+    },
+    benefits: { uz: ["Tez energiya", "Protein manbai", "To'yimli", "Qulay"], ru: ["Быстрая энергия", "Источник белка", "Сытно", "Удобно"], en: ["Quick energy", "Protein source", "Filling", "Convenient"] },
+    forWhom: { uz: "Studentlar, band odamlar", ru: "Студенты, занятые люди", en: "Students, busy people" },
+    notForWhom: { uz: "Qattiq dieta ustidagilar", ru: "На строгой диете", en: "Those on a strict diet" },
+    whenEat: { uz: "Tushlik", ru: "Обед", en: "Lunch" },
+    dailyRec: { uz: "Kuniga 1 dona", ru: "1 штука в день", en: "1 piece per day" },
+    storage: { uz: "Tayyorlab darhol yeng", ru: "Есть сразу", en: "Eat fresh" },
+    ingredients: { uz: ["Lavash", "Tovuq filesi", "Salat", "Pomidor", "Yogurt sousi"], ru: ["Лаваш", "Куриное филе", "Салат", "Помидор", "Йогуртовый соус"], en: ["Flatbread", "Chicken fillet", "Lettuce", "Tomato", "Yogurt sauce"] },
+    recipe: { uz: ["Tovuqni pishiring", "Lavashni yoying", "Sabzavot joylang", "Sous quying", "Rulon qilib o'rang"], ru: ["Приготовьте курицу", "Разложите лаваш", "Выложите овощи", "Полейте соусом", "Сверните ролл"], en: ["Cook the chicken", "Lay out the flatbread", "Add vegetables", "Drizzle sauce", "Roll it up"] },
+  },
+  {
+    id: "berry-parfait",
+    image: parfaitImg,
+    categories: ["breakfast", "healthy", "kids", "student"],
+    name: { uz: "Rezavor parfe", ru: "Ягодный парфе", en: "Berry Parfait" },
+    short: { uz: "Yogurt, granola va rezavor", ru: "Йогурт, гранола и ягоды", en: "Yogurt, granola and berries" },
+    calories: 210, protein: 11, fat: 6, carbs: 30, prepTime: 5, price: 1, healthScore: 90, rating: 4.8,
+    vitamins: ["C", "B2", "D"], minerals: ["Kaltsiy", "Kaliy", "Fosfor"],
+    description: {
+      uz: "Grek yogurti, xrustli granola, yangi rezavor va asal qatlamlari — mazali va foydali nonushta.",
+      ru: "Слои греческого йогурта, хрустящей гранолы, свежих ягод и мёда — вкусный и полезный завтрак.",
+      en: "Layers of Greek yogurt, crunchy granola, fresh berries and honey — a tasty and healthy breakfast.",
+    },
+    benefits: { uz: ["Ichak salomatligi", "Kaltsiy manbai", "Antioksidantlar", "Yengil energiya"], ru: ["Здоровье кишечника", "Источник кальция", "Антиоксиданты", "Лёгкая энергия"], en: ["Gut health", "Calcium source", "Antioxidants", "Light energy"] },
+    forWhom: { uz: "Bolalar, studentlar", ru: "Дети, студенты", en: "Kids, students" },
+    notForWhom: { uz: "Laktozaga chidamsizlar", ru: "Непереносимость лактозы", en: "Lactose intolerance" },
+    whenEat: { uz: "Nonushta yoki gazak", ru: "Завтрак или перекус", en: "Breakfast or snack" },
+    dailyRec: { uz: "Kuniga 1 stakan", ru: "1 стакан в день", en: "1 glass per day" },
+    storage: { uz: "Muzlatgichda 1 kun", ru: "В холодильнике 1 день", en: "1 day in the fridge" },
+    ingredients: { uz: ["Grek yogurti", "Granola", "Rezavorlar", "Asal", "Yong'oq"], ru: ["Греческий йогурт", "Гранола", "Ягоды", "Мёд", "Орехи"], en: ["Greek yogurt", "Granola", "Berries", "Honey", "Nuts"] },
+    recipe: { uz: ["Stakan tubiga yogurt soling", "Granola qo'shing", "Rezavor joylang", "Qatlamlarni takrorlang", "Asal quying"], ru: ["Налейте йогурт на дно стакана", "Добавьте гранолу", "Выложите ягоды", "Повторите слои", "Полейте мёдом"], en: ["Add yogurt to the bottom", "Add granola", "Layer berries", "Repeat layers", "Drizzle honey"] },
+  },
 ];
+
+// Real sale prices in Uzbek so'm (prepared, ready-to-order meals)
+export const FOOD_PRICES: Record<string, number> = {
+  "grilled-salmon": 95000,
+  "quinoa-bowl": 55000,
+  "grilled-chicken": 48000,
+  "berry-oatmeal": 28000,
+  "green-salad": 32000,
+  "berry-smoothie": 30000,
+  "grilled-steak": 89000,
+  "sushi-platter": 78000,
+  "avocado-toast": 42000,
+  "lentil-soup": 35000,
+  "chicken-wrap": 39000,
+  "berry-parfait": 32000,
+};
+
+export function getPrice(id: string): number {
+  return FOOD_PRICES[id] ?? 40000;
+}
+
+export function formatPrice(value: number): string {
+  return new Intl.NumberFormat("ru-RU").format(value) + " so'm";
+}
 
 export function getFood(id: string) {
   return foods.find((f) => f.id === id);
@@ -223,3 +385,4 @@ export function getFood(id: string) {
 export function foodsByCategory(catId: string) {
   return foods.filter((f) => f.categories.includes(catId));
 }
+
