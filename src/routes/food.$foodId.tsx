@@ -4,12 +4,13 @@ import { motion } from "framer-motion";
 import { toast } from "sonner";
 import {
   ArrowLeft, Flame, Beef, Droplet, Wheat, Clock, DollarSign, HeartPulse,
-  Bookmark, Share2, Check, X, CalendarClock, Package, Star, ChevronRight,
+  Bookmark, Share2, Check, X, CalendarClock, Package, Star, ChevronRight, Send, Link2
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { Reveal } from "@/components/Reveal";
 import { FoodCard } from "@/components/FoodCard";
 import { getFood, foods, type Food } from "@/lib/foods";
+import { useSavedStore } from "@/lib/useSavedStore";
 
 export const Route = createFileRoute("/food/$foodId")({
   loader: ({ params }) => {
@@ -51,9 +52,15 @@ function FoodDetail() {
   const { food } = Route.useLoaderData();
   const { t, lang } = useI18n();
   const [tab, setTab] = useState<Tab>("overview");
-  const [saved, setSaved] = useState(false);
+  
+  const savedFoodIds = useSavedStore((state) => state.savedFoodIds);
+  const toggleSave = useSavedStore((state) => state.toggleSave);
+  const isSaved = savedFoodIds.includes(food.id);
 
   const related = foods.filter((f) => f.id !== food.id && f.categories.some((c) => food.categories.includes(c))).slice(0, 3);
+  
+  const recommendedSalad = food.recommendedSaladId ? getFood(food.recommendedSaladId) : null;
+  const recommendedSide = food.recommendedSideId ? getFood(food.recommendedSideId) : null;
 
   const macros = [
     { icon: Flame, label: t("food.calories"), value: `${food.calories}`, unit: "kcal", color: "gold" },
@@ -70,8 +77,8 @@ function FoodDetail() {
   ];
 
   const handleSave = () => {
-    setSaved((s) => !s);
-    toast.success(saved ? t("food.save") : t("food.saved"));
+    toggleSave(food.id);
+    toast.success(!isSaved ? t("food.saved") : "O'chirildi");
   };
   const handleShare = () => {
     if (typeof navigator !== "undefined" && navigator.clipboard) navigator.clipboard.writeText(window.location.href);
@@ -132,13 +139,26 @@ function FoodDetail() {
             {/* Actions */}
             <Reveal delay={0.15}>
               <div className="mt-5 flex gap-3">
-                <button onClick={handleSave} className={`flex flex-1 items-center justify-center gap-2 rounded-full py-3 font-semibold transition-all ${saved ? "text-primary-foreground" : "glass hover:bg-accent"}`} style={saved ? { background: "var(--gradient-primary)" } : undefined}>
-                  <Bookmark className={`h-4 w-4 ${saved ? "fill-current" : ""}`} /> {saved ? t("food.saved") : t("food.save")}
+                <button onClick={handleSave} className={`flex flex-1 items-center justify-center gap-2 rounded-full py-3 font-semibold transition-all ${isSaved ? "text-primary-foreground" : "glass hover:bg-accent"}`} style={isSaved ? { background: "var(--gradient-primary)" } : undefined}>
+                  <Bookmark className={`h-4 w-4 ${isSaved ? "fill-current" : ""}`} /> {isSaved ? t("food.saved") : t("food.save")}
                 </button>
                 <button onClick={handleShare} className="glass flex flex-1 items-center justify-center gap-2 rounded-full py-3 font-semibold transition-colors hover:bg-accent">
                   <Share2 className="h-4 w-4" /> {t("food.share")}
                 </button>
               </div>
+            </Reveal>
+
+            {/* Order via Telegram Bot */}
+            <Reveal delay={0.18}>
+              <a
+                href={`https://t.me/youtings_bot?start=food_${food.id}`}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 flex w-full items-center justify-center gap-2.5 rounded-full py-3.5 font-bold text-white shadow-lg transition-transform hover:scale-[1.01]"
+                style={{ background: "linear-gradient(135deg, #0088cc, #006bb3)" }}
+              >
+                <Send className="h-4 w-4" /> Telegram bot orqali buyurtma berish
+              </a>
             </Reveal>
 
             {/* Tabs */}
@@ -166,6 +186,9 @@ function FoodDetail() {
                         </div>
                       ))}
                     </div>
+                    {food.prepMethod && (
+                      <InfoRow icon={Flame} label={t("food.prepMethod")} value={food.prepMethod[lang]} />
+                    )}
                     <InfoRow icon={CalendarClock} label={t("food.whenEat")} value={food.whenEat[lang]} />
                     <InfoRow icon={HeartPulse} label={t("food.dailyRec")} value={food.dailyRec[lang]} />
                     <InfoRow icon={Package} label={t("food.storage")} value={food.storage[lang]} />
@@ -192,6 +215,12 @@ function FoodDetail() {
                         </li>
                       ))}
                     </ul>
+                    {food.healthBenefitsInfo && (
+                      <div className="glass card-glow rounded-2xl p-5 border border-primary/30" style={{ background: "rgba(var(--primary), 0.05)" }}>
+                        <div className="mb-2 flex items-center gap-2 font-semibold text-primary"><HeartPulse className="h-5 w-5" /> {t("food.healthBenefitsInfo")}</div>
+                        <p className="text-sm text-foreground/90 leading-relaxed">{food.healthBenefitsInfo[lang]}</p>
+                      </div>
+                    )}
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="glass card-glow rounded-2xl p-5">
                         <div className="mb-2 flex items-center gap-2 font-semibold text-primary"><Check className="h-4 w-4" /> {t("food.forWhom")}</div>
@@ -233,9 +262,24 @@ function FoodDetail() {
           </div>
         </div>
 
+        {/* Pairings */}
+        {(recommendedSalad || recommendedSide) && (
+          <div className="mt-16">
+            <div className="mb-8 flex items-center justify-between">
+              <h2 className="text-3xl font-extrabold flex items-center gap-3">
+                <Link2 className="h-8 w-8 text-chart-2" /> {t("food.pairingsTitle")}
+              </h2>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {recommendedSalad && <FoodCard key={recommendedSalad.id} food={recommendedSalad} index={0} />}
+              {recommendedSide && <FoodCard key={recommendedSide.id} food={recommendedSide} index={1} />}
+            </div>
+          </div>
+        )}
+
         {/* Related */}
         {related.length > 0 && (
-          <div className="mt-20">
+          <div className="mt-16">
             <div className="mb-8 flex items-center justify-between">
               <h2 className="text-3xl font-extrabold">{t("food.related")}</h2>
               <Link to="/catalog" className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-gold">

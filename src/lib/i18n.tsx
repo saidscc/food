@@ -13,6 +13,7 @@ type Dict = Record<string, string>;
 const uz: Dict = {
   "nav.home": "Bosh sahifa",
   "nav.catalog": "Katalog",
+  "nav.fridge": "Muzlatgichim ❄️",
   "nav.tips": "Maslahatlar",
   "nav.videos": "Videolar",
   "nav.about": "Loyiha haqida",
@@ -79,6 +80,11 @@ const uz: Dict = {
   "food.min": "daqiqa",
   "food.back": "Katalogga qaytish",
   "food.healthScore": "Sog'liq bahosi",
+  "food.prepMethod": "Pishirish usuli",
+  "food.healthBenefitsInfo": "Nimalarga foydali?",
+  "food.recommendedSalad": "Bunga mos salat",
+  "food.recommendedSide": "Bunga mos qo'shimcha",
+  "food.pairingsTitle": "Tavsiya etilgan qo'shimchalar",
 
   "cta.title": "Sog'lom hayotni bugun boshlang",
   "cta.subtitle": "Ro'yxatdan o'ting va shaxsiy tavsiyalar, kaloriya nazorati va progressni oching.",
@@ -179,6 +185,7 @@ const uz: Dict = {
 const ru: Dict = {
   "nav.home": "Главная",
   "nav.catalog": "Каталог",
+  "nav.fridge": "Мой холодильник ❄️",
   "nav.tips": "Советы",
   "nav.videos": "Видео",
   "nav.about": "О проекте",
@@ -245,6 +252,11 @@ const ru: Dict = {
   "food.min": "мин",
   "food.back": "Вернуться в каталог",
   "food.healthScore": "Оценка пользы",
+  "food.prepMethod": "Способ приготовления",
+  "food.healthBenefitsInfo": "Для чего полезно?",
+  "food.recommendedSalad": "Подходящий салат",
+  "food.recommendedSide": "Подходящий гарнир",
+  "food.pairingsTitle": "Рекомендуемые сочетания",
 
   "cta.title": "Начните здоровую жизнь сегодня",
   "cta.subtitle": "Зарегистрируйтесь и откройте персональные рекомендации, контроль калорий и прогресс.",
@@ -345,6 +357,7 @@ const ru: Dict = {
 const en: Dict = {
   "nav.home": "Home",
   "nav.catalog": "Catalog",
+  "nav.fridge": "My Fridge ❄️",
   "nav.tips": "Tips",
   "nav.videos": "Videos",
   "nav.about": "About",
@@ -411,6 +424,11 @@ const en: Dict = {
   "food.min": "min",
   "food.back": "Back to catalog",
   "food.healthScore": "Health score",
+  "food.prepMethod": "Preparation method",
+  "food.healthBenefitsInfo": "Health benefits info",
+  "food.recommendedSalad": "Recommended salad",
+  "food.recommendedSide": "Recommended side",
+  "food.pairingsTitle": "Recommended pairings",
 
   "cta.title": "Start your healthy life today",
   "cta.subtitle": "Sign up and unlock personal recommendations, calorie control and progress tracking.",

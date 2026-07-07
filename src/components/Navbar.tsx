@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Leaf, ShoppingBag, User, LogOut, LayoutDashboard, Package } from "lucide-react";
+import { Menu, X, Leaf, ShoppingBag, User, LogOut, LayoutDashboard, Package, Bookmark } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import { useCart } from "@/lib/cart";
+import { useSavedStore } from "@/lib/useSavedStore";
 import { useAuth } from "@/lib/useAuth";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
@@ -19,6 +20,7 @@ import {
 export function Navbar() {
   const { t } = useI18n();
   const { count } = useCart();
+  const savedCount = useSavedStore((state) => state.savedFoodIds.length);
   const { user, isAdmin, signOut } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -37,6 +39,7 @@ export function Navbar() {
   const links = [
     { to: "/", label: t("nav.home") },
     { to: "/catalog", label: t("nav.catalog") },
+    { to: "/fridge", label: t("nav.fridge") },
     { to: "/#tips", label: t("nav.tips") },
     { to: "/#videos", label: t("nav.videos") },
   ];
@@ -79,6 +82,19 @@ export function Navbar() {
             <SearchTrigger onClick={() => setSearchOpen(true)} />
             <ThemeToggle />
             <LanguageSwitcher />
+
+            <Link
+              to="/saved"
+              className="glass relative flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-accent"
+              aria-label="Saqlanganlar"
+            >
+              <Bookmark className="h-4 w-4" />
+              {savedCount > 0 && (
+                <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-primary-foreground">
+                  {savedCount}
+                </span>
+              )}
+            </Link>
 
             <Link
               to="/cart"

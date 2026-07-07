@@ -1,18 +1,28 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Flame, Clock, Star, Plus } from "lucide-react";
+import { Flame, Clock, Star, Plus, UserPlus } from "lucide-react";
 import { toast } from "sonner";
 import { useI18n } from "@/lib/i18n";
 import { useCart } from "@/lib/cart";
+import { useAuth } from "@/lib/useAuth";
 import { getPrice, formatPrice, type Food } from "@/lib/foods";
 
 export function FoodCard({ food, index = 0 }: { food: Food; index?: number }) {
   const { t, lang } = useI18n();
   const { add } = useCart();
+  const { user } = useAuth();
 
   const addToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    if (!user) {
+      toast.error("Avval ro'yxatdan o'ting!", {
+        description: "Buyurtma berish uchun hisobingizga kiring.",
+        action: { label: "Kirish", onClick: () => { window.location.href = "/auth"; } },
+        duration: 4000,
+      });
+      return;
+    }
     add(food.id);
     toast.success(t("food.added"));
   };

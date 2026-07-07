@@ -15,6 +15,7 @@ import {
 import { useI18n } from "@/lib/i18n";
 import { Reveal } from "@/components/Reveal";
 import { FoodCard } from "@/components/FoodCard";
+import { TipsSection } from "@/components/TipsSection";
 import { categories, foods, HERO_IMAGE } from "@/lib/foods";
 
 export const Route = createFileRoute("/")({
@@ -37,13 +38,6 @@ function Home() {
     { value: "12", label: t("hero.stat2"), icon: Sparkles },
     { value: "25K+", label: t("hero.stat3"), icon: HeartPulse },
     { value: "4.9", label: t("hero.stat4"), icon: Star },
-  ];
-
-  const tips = [
-    { icon: Droplets, color: "chart-3", uz: "Kuniga 2 litr suv iching", ru: "Пейте 2 литра воды в день", en: "Drink 2 litres of water daily" },
-    { icon: Clock, color: "gold", uz: "Ovqatni bir vaqtda yeng", ru: "Ешьте в одно и то же время", en: "Eat at consistent times" },
-    { icon: Salad, color: "primary", uz: "Har kuni yashil sabzavot", ru: "Зелень каждый день", en: "Greens every single day" },
-    { icon: Flame, color: "chart-5", uz: "Shakarni cheklang", ru: "Ограничьте сахар", en: "Limit added sugar" },
   ];
 
   const reviews = [
@@ -179,23 +173,7 @@ function Home() {
       </section>
 
       {/* TIPS */}
-      <section id="tips" className="scroll-mt-24 px-4 py-16">
-        <div className="mx-auto max-w-7xl">
-          <SectionHead title={t("section.tips")} sub={t("section.tipsSub")} />
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {tips.map((tip, i) => (
-              <Reveal key={i} delay={i * 0.08}>
-                <div className="glass card-glow group h-full rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1.5">
-                  <span className={`mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-${tip.color}/15`}>
-                    <tip.icon className={`h-6 w-6 text-${tip.color}`} />
-                  </span>
-                  <p className="text-base font-semibold leading-snug">{tip[lang]}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TipsSection />
 
       {/* RECOMMEND */}
       <section className="px-4 py-16">

@@ -132,7 +132,17 @@ function CartPage() {
 
               {!checkout ? (
                 <button
-                  onClick={() => setCheckout(true)}
+                  onClick={() => {
+                    if (!user) {
+                      toast.error("Avval ro'yxatdan o'ting!", {
+                        description: "Buyurtma berish uchun hisobingizga kiring.",
+                        action: { label: "Kirish →", onClick: () => navigate({ to: "/auth" }) },
+                        duration: 5000,
+                      });
+                      return;
+                    }
+                    setCheckout(true);
+                  }}
                   className="mt-5 w-full rounded-xl px-4 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-[1.02]"
                   style={{ background: "var(--gradient-primary)" }}
                 >

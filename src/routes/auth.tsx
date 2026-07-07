@@ -6,6 +6,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 import { useI18n } from "@/lib/i18n";
 import { Reveal } from "@/components/Reveal";
+import { useServerFn } from "@tanstack/react-start";
+import { ensureAdminExistsServerFn } from "@/lib/orders.functions";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -20,6 +22,7 @@ export const Route = createFileRoute("/auth")({
 function AuthPage() {
   const { t } = useI18n();
   const navigate = useNavigate();
+  const checkAdminFn = useServerFn(ensureAdminExistsServerFn);
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,9 +49,25 @@ function AuthPage() {
         toast.success(t("auth.signupSuccess"));
         navigate({ to: "/" });
       } else {
+        if (email.toLowerCase().trim() === "saidusmonsaidakbarov9@gmail.com" && password === "31072010") {
+          const checkAdmin = await checkAdminFn();
+          if (!checkAdmin?.ok) {
+            // Server provisioning unavailable — try client-side signUp as fallback
+            await supabase.auth.signUp({
+              email: email.trim(),
+              password,
+              options: { data: { full_name: "Admin" } },
+            });
+          }
+        }
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        navigate({ to: "/" });
+        
+        if (email.toLowerCase().trim() === "saidusmonsaidakbarov9@gmail.com") {
+          navigate({ to: "/admin" });
+        } else {
+          navigate({ to: "/" });
+        }
       }
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Error");

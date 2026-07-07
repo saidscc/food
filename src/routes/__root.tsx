@@ -4,21 +4,28 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Send } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ThemeProvider } from "../lib/theme";
 import { I18nProvider } from "../lib/i18n";
-import { AuthProvider } from "../lib/useAuth";
+import { AuthProvider, useAuth } from "../lib/useAuth";
 import { CartProvider } from "../lib/cart";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { AnimatedBackground } from "../components/AnimatedBackground";
 import { Toaster } from "../components/ui/sonner";
+import { WelcomeSplash } from "../components/WelcomeSplash";
+import { RegisterPrompt } from "../components/RegisterPrompt";
+import { LocationsSection } from "../components/LocationsSection";
+import { AIChatbot } from "../components/AIChatbot";
 
 function NotFoundComponent() {
   return (
@@ -127,6 +134,150 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+// Telegram Bot Banner
+function TelegramBanner() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="relative mx-4 mb-8 overflow-hidden rounded-3xl"
+      style={{ background: "linear-gradient(135deg, #0088cc15, #a855f715)", border: "1px solid #0088cc30" }}
+    >
+      {/* Glow */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px]"
+        style={{ background: "linear-gradient(90deg, transparent, #0088cc, transparent)" }}
+      />
+
+      {/* Animated telegram icon */}
+      <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full blur-[80px]"
+        style={{ background: "radial-gradient(circle, rgba(0,136,204,0.2), transparent)" }}
+      />
+
+      <div className="flex flex-col items-center justify-between gap-6 px-6 py-8 text-center sm:flex-row sm:text-left md:px-10">
+        {/* Icon + Text */}
+        <div className="flex items-center gap-5">
+          <motion.div
+            animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl"
+            style={{ background: "linear-gradient(135deg, #0088cc, #006bb3)" }}
+          >
+            <Send className="h-8 w-8 text-white" />
+          </motion.div>
+          <div>
+            <h3 className="text-xl font-extrabold text-foreground">
+              Telegram botimizga o'ting! 🤖
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Buyurtma bering, maslahat oling, menyuni ko'ring — barchasi bir joyda!
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {["🛒 Buyurtma", "💬 Maslahat", "🥗 Menyu", "📍 Do'konlar"].map((tag) => (
+                <span key={tag} className="rounded-full bg-white/5 border border-white/10 px-2.5 py-0.5 text-xs font-medium text-foreground/70">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <motion.a
+          href="https://t.me/youtings_bot"
+          target="_blank"
+          rel="noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          className="shrink-0 flex items-center gap-2 rounded-2xl px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all"
+          style={{ background: "linear-gradient(135deg, #0088cc, #006bb3)" }}
+        >
+          <Send className="h-4 w-4" /> Botga o'tish
+        </motion.a>
+      </div>
+    </motion.div>
+  );
+}
+
+// Inner app content with auth-aware prompts
+function AppContent() {
+  const { user, loading } = useAuth();
+  const location = useLocation();
+  const isAuthPage = location.pathname === "/auth" || location.pathname === "/admin";
+  const [splashDone, setSplashDone] = useState(false);
+  const [showRegisterPrompt, setShowRegisterPrompt] = useState(false);
+
+  // Check sessionStorage to only show once per session
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const splashShown = sessionStorage.getItem("splash_shown");
+    if (splashShown) {
+      setSplashDone(true);
+    }
+  }, []);
+
+  // When splash finishes, mark it done and potentially show register prompt
+  const handleSplashDone = () => {
+    setSplashDone(true);
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("splash_shown", "1");
+    }
+  };
+
+  // Show register prompt also to unauthenticated users who already dismissed the splash
+  useEffect(() => {
+    if (!loading && !user && splashDone) {
+      const dismissed = sessionStorage.getItem("register_prompt_dismissed");
+      const splashJustFinished = sessionStorage.getItem("splash_shown");
+      if (!dismissed && splashJustFinished) {
+        const timer = setTimeout(() => {
+          setShowRegisterPrompt(true);
+        }, 1500);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [loading, user, splashDone]);
+
+  const handleDismissRegister = () => {
+    setShowRegisterPrompt(false);
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("register_prompt_dismissed", "1");
+    }
+  };
+
+  return (
+    <>
+      {/* Welcome Splash — not shown on auth/admin pages */}
+      {!splashDone && !isAuthPage && <WelcomeSplash onDone={handleSplashDone} />}
+
+      {/* Register Prompt — not shown on auth/admin pages */}
+      <AnimatePresence>
+        {showRegisterPrompt && !user && !isAuthPage && (
+          <RegisterPrompt onDismiss={handleDismissRegister} />
+        )}
+      </AnimatePresence>
+
+      <AnimatedBackground />
+      <Navbar />
+      <main className="min-h-screen">
+        <Outlet />
+      </main>
+
+      {/* Locations Section */}
+      <LocationsSection />
+
+      {/* Telegram Bot Banner */}
+      <TelegramBanner />
+
+      <Footer />
+      <Toaster position="top-center" />
+
+      {/* AI Chatbot floating button */}
+      <AIChatbot />
+    </>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
@@ -136,14 +287,7 @@ function RootComponent() {
         <I18nProvider>
           <AuthProvider>
             <CartProvider>
-              <AnimatedBackground />
-              <Navbar />
-              <main className="min-h-screen">
-                {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-                <Outlet />
-              </main>
-              <Footer />
-              <Toaster position="top-center" />
+              <AppContent />
             </CartProvider>
           </AuthProvider>
         </I18nProvider>

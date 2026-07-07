@@ -9,17 +9,31 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SavedRouteImport } from './routes/saved'
 import { Route as OrdersRouteImport } from './routes/orders'
+import { Route as FridgeRouteImport } from './routes/fridge'
 import { Route as CatalogRouteImport } from './routes/catalog'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FoodFoodIdRouteImport } from './routes/food.$foodId'
+import { Route as ApiTelegramRouteImport } from './routes/api/telegram'
+import { Route as ApiSetupAdminRouteImport } from './routes/api/setup-admin'
 
+const SavedRoute = SavedRouteImport.update({
+  id: '/saved',
+  path: '/saved',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OrdersRoute = OrdersRouteImport.update({
   id: '/orders',
   path: '/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FridgeRoute = FridgeRouteImport.update({
+  id: '/fridge',
+  path: '/fridge',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CatalogRoute = CatalogRouteImport.update({
@@ -52,6 +66,16 @@ const FoodFoodIdRoute = FoodFoodIdRouteImport.update({
   path: '/food/$foodId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiTelegramRoute = ApiTelegramRouteImport.update({
+  id: '/api/telegram',
+  path: '/api/telegram',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiSetupAdminRoute = ApiSetupAdminRouteImport.update({
+  id: '/api/setup-admin',
+  path: '/api/setup-admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -59,7 +83,11 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/cart': typeof CartRoute
   '/catalog': typeof CatalogRoute
+  '/fridge': typeof FridgeRoute
   '/orders': typeof OrdersRoute
+  '/saved': typeof SavedRoute
+  '/api/setup-admin': typeof ApiSetupAdminRoute
+  '/api/telegram': typeof ApiTelegramRoute
   '/food/$foodId': typeof FoodFoodIdRoute
 }
 export interface FileRoutesByTo {
@@ -68,7 +96,11 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/cart': typeof CartRoute
   '/catalog': typeof CatalogRoute
+  '/fridge': typeof FridgeRoute
   '/orders': typeof OrdersRoute
+  '/saved': typeof SavedRoute
+  '/api/setup-admin': typeof ApiSetupAdminRoute
+  '/api/telegram': typeof ApiTelegramRoute
   '/food/$foodId': typeof FoodFoodIdRoute
 }
 export interface FileRoutesById {
@@ -78,7 +110,11 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/cart': typeof CartRoute
   '/catalog': typeof CatalogRoute
+  '/fridge': typeof FridgeRoute
   '/orders': typeof OrdersRoute
+  '/saved': typeof SavedRoute
+  '/api/setup-admin': typeof ApiSetupAdminRoute
+  '/api/telegram': typeof ApiTelegramRoute
   '/food/$foodId': typeof FoodFoodIdRoute
 }
 export interface FileRouteTypes {
@@ -89,7 +125,11 @@ export interface FileRouteTypes {
     | '/auth'
     | '/cart'
     | '/catalog'
+    | '/fridge'
     | '/orders'
+    | '/saved'
+    | '/api/setup-admin'
+    | '/api/telegram'
     | '/food/$foodId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -98,7 +138,11 @@ export interface FileRouteTypes {
     | '/auth'
     | '/cart'
     | '/catalog'
+    | '/fridge'
     | '/orders'
+    | '/saved'
+    | '/api/setup-admin'
+    | '/api/telegram'
     | '/food/$foodId'
   id:
     | '__root__'
@@ -107,7 +151,11 @@ export interface FileRouteTypes {
     | '/auth'
     | '/cart'
     | '/catalog'
+    | '/fridge'
     | '/orders'
+    | '/saved'
+    | '/api/setup-admin'
+    | '/api/telegram'
     | '/food/$foodId'
   fileRoutesById: FileRoutesById
 }
@@ -117,17 +165,35 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   CartRoute: typeof CartRoute
   CatalogRoute: typeof CatalogRoute
+  FridgeRoute: typeof FridgeRoute
   OrdersRoute: typeof OrdersRoute
+  SavedRoute: typeof SavedRoute
+  ApiSetupAdminRoute: typeof ApiSetupAdminRoute
+  ApiTelegramRoute: typeof ApiTelegramRoute
   FoodFoodIdRoute: typeof FoodFoodIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/saved': {
+      id: '/saved'
+      path: '/saved'
+      fullPath: '/saved'
+      preLoaderRoute: typeof SavedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/orders': {
       id: '/orders'
       path: '/orders'
       fullPath: '/orders'
       preLoaderRoute: typeof OrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fridge': {
+      id: '/fridge'
+      path: '/fridge'
+      fullPath: '/fridge'
+      preLoaderRoute: typeof FridgeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/catalog': {
@@ -172,6 +238,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FoodFoodIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/telegram': {
+      id: '/api/telegram'
+      path: '/api/telegram'
+      fullPath: '/api/telegram'
+      preLoaderRoute: typeof ApiTelegramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/setup-admin': {
+      id: '/api/setup-admin'
+      path: '/api/setup-admin'
+      fullPath: '/api/setup-admin'
+      preLoaderRoute: typeof ApiSetupAdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -181,9 +261,23 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   CartRoute: CartRoute,
   CatalogRoute: CatalogRoute,
+  FridgeRoute: FridgeRoute,
   OrdersRoute: OrdersRoute,
+  SavedRoute: SavedRoute,
+  ApiSetupAdminRoute: ApiSetupAdminRoute,
+  ApiTelegramRoute: ApiTelegramRoute,
   FoodFoodIdRoute: FoodFoodIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

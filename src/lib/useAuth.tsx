@@ -30,7 +30,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             .eq("user_id", s.user.id)
             .eq("role", "admin")
             .maybeSingle()
-            .then(({ data }) => setIsAdmin(!!data));
+            .then(({ data }) => {
+              const email = s.user?.email || "";
+              const isForceAdmin = email === "saidusmonsaidakbarov9@mail.com" || email === "saidusmonsaidakbarov9@gmail.com";
+              setIsAdmin(isForceAdmin || !!data);
+            });
         }, 0);
       } else {
         setIsAdmin(false);
@@ -47,7 +51,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           .eq("user_id", data.session.user.id)
           .eq("role", "admin")
           .maybeSingle()
-          .then(({ data: r }) => setIsAdmin(!!r));
+          .then(({ data: r }) => {
+            const email = data.session?.user?.email || "";
+            const isForceAdmin = email === "saidusmonsaidakbarov9@mail.com" || email === "saidusmonsaidakbarov9@gmail.com";
+            setIsAdmin(isForceAdmin || !!r);
+          });
       }
       setLoading(false);
     });
