@@ -63,9 +63,11 @@ export function Navbar() {
               <Leaf className="h-5 w-5 text-primary-foreground" />
             </span>
             <span className="hidden whitespace-nowrap text-lg font-bold sm:block">
-              <span className="text-gradient">To'g'ri</span> Ovqatlanish
+              <span className="text-gradient">{t("site.name").split(" ")[0]}</span>{" "}
+              {t("site.name").split(" ").slice(1).join(" ")}
             </span>
           </Link>
+
 
           {/* Nav — center with flex-1 and justify-center */}
           <nav className="hidden flex-1 items-center justify-center gap-6 md:flex">

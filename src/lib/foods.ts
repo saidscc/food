@@ -135,7 +135,7 @@ export let foods: Food[] = [
   },
   {
     id: "egg-toast",
-    image: "https://images.unsplash.com/photo-1584270354949-5e1e9d5d5d8a?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80",
     categories: ["fast", "breakfast", "protein"],
     name: { uz: "Tuxumli tost", ru: "Тост с яйцом", en: "Egg Toast" },
     short: { uz: "Qovurilgan non ustida mo'rt tuxum", ru: "Хрустящий тост с яйцом", en: "Crunchy toast with a fried egg" },
@@ -157,7 +157,7 @@ export let foods: Food[] = [
   },
   {
     id: "quick-sandwich",
-    image: "https://images.unsplash.com/photo-1562967916-5c5e7c1c1d3e?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1539252554935-3c248f4f2cff?w=800&q=80",
     categories: ["fast", "protein", "breakfast", "lunch"],
     name: { uz: "Tezkor sandvich", ru: "Быстрый сэндвич", en: "Quick Sandwich" },
     short: { uz: "5 daqiqada tayyor to'yimli sandvich", ru: "Сытный сэндвич за 5 минут", en: "Hearty sandwich in 5 minutes" },
@@ -179,7 +179,7 @@ export let foods: Food[] = [
   },
   {
     id: "instant-oatmeal-cup",
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1517673408408-a8a1aa5bfa6f?w=800&q=80",
     categories: ["fast", "breakfast", "healthy"],
     name: { uz: "Stakanda tayyor suli", ru: "Овсянка в стакане", en: "Instant Oat Cup" },
     short: { uz: "Qaynoq suv bilan 3 daqiqada tayyor", ru: "Готово за 3 минуты с кипятком", en: "Ready in 3 minutes with hot water" },
@@ -201,7 +201,7 @@ export let foods: Food[] = [
   },
   {
     id: "egg-salad-cup",
-    image: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca9?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=800&q=80",
     categories: ["fast", "protein", "lunch", "healthy"],
     name: { uz: "Tuxumli salat", ru: "Яичный салат", en: "Egg Salad" },
     short: { uz: "Tuxum, sabzavot va mazali sous bilan salat", ru: "Салат с яйцом, овощами и вкусным соусом", en: "Egg, veggie and dressing salad" },
@@ -223,7 +223,7 @@ export let foods: Food[] = [
   },
   {
     id: "peanut-butter-banana",
-    image: "https://images.unsplash.com/photo-1523986371872-9d3ba2e2f74d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1558730000-c96b00a5c39d?w=800&q=80",
     categories: ["fast", "breakfast", "sport", "weightgain"],
     name: { uz: "Yer yong'oq yog'li banan tost", ru: "Тост с арахисовым маслом и бананом", en: "Peanut Butter Banana Toast" },
     short: { uz: "Kaloriyali va mazali tez nonushta", ru: "Калорийный и вкусный быстрый завтрак", en: "Caloric, tasty fast breakfast" },
@@ -245,7 +245,7 @@ export let foods: Food[] = [
   },
   {
     id: "yogurt-fruit-cup",
-    image: "https://images.unsplash.com/photo-1543352634-5b9a1a9c8e88?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=80",
     categories: ["fast", "breakfast", "healthy"],
     name: { uz: "Yogurt va meva", ru: "Йогурт с фруктами", en: "Yogurt & Fruit Cup" },
     short: { uz: "2 daqiqada tayyor foydali gazak", ru: "Полезный перекус за 2 минуты", en: "Healthy snack in 2 minutes" },
@@ -267,7 +267,7 @@ export let foods: Food[] = [
   },
   {
     id: "tuna-rice-bowl",
-    image: "https://images.unsplash.com/photo-1543352634-5b9a1a9c8e88?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1504674900249-84c02bd5791a?w=800&q=80",
     categories: ["fast", "protein", "lunch", "sport", "healthy"],
     name: { uz: "Tuna va guruch bowl", ru: "Боул с тунцом и рисом", en: "Tuna Rice Bowl" },
     short: { uz: "Yuqori proteinli tez tushlik bowl", ru: "Высокобелковый быстрый обеденный боул", en: "High-protein quick lunch bowl" },
@@ -329,7 +329,7 @@ export let foods: Food[] = [
   },
   {
     id: "quinoa-bowl",
-    image: "https://images.unsplash.com/photo-1543352634-5b9a1a9c8e88?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80",
     categories: ["healthy", "vegetarian", "weightloss", "lunch"],
     name: { uz: "Kinoa bowl", ru: "Боул с киноа", en: "Quinoa Bowl" },
     short: { uz: "To'yimli vegetarian taom", ru: "Сытное вегетарианское блюдо", en: "Filling vegetarian meal" },
@@ -378,7 +378,7 @@ export let foods: Food[] = [
   },
   {
     id: "berry-oatmeal",
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=800&q=80",
     categories: ["breakfast", "healthy"],
     name: { uz: "Rezavorli suli bo'tqasi", ru: "Овсянка с ягодами", en: "Berry Oatmeal" },
     short: { uz: "Ideal energiyali nonushta", ru: "Идеальный энергичный завтрак", en: "Ideal energizing breakfast" },
@@ -422,7 +422,7 @@ export let foods: Food[] = [
   },
   {
     id: "berry-smoothie",
-    image: "https://images.unsplash.com/photo-1523986371872-9d3ba2e2f74d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1570696516188-ade861b84a49?w=800&q=80",
     categories: ["breakfast", "sport", "protein", "weightgain"],
     name: { uz: "Rezavor smoothie", ru: "Ягодный смузи", en: "Berry Smoothie" },
     short: { uz: "Tez va to'yimli energiya", ru: "Быстрая и сытная энергия", en: "Quick, filling energy" },
@@ -535,7 +535,7 @@ export let foods: Food[] = [
   },
   {
     id: "chicken-wrap",
-    image: "https://images.unsplash.com/photo-1562967916-5c5e7c1c1d3e?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=800&q=80",
     categories: ["fast", "protein", "lunch"],
     name: { uz: "Tovuqli wrap", ru: "Ролл с курицей", en: "Chicken Wrap" },
     short: { uz: "Tez va to'yimli protein taom", ru: "Быстрое и сытное белковое блюдо", en: "Quick and filling protein meal" },
@@ -557,7 +557,7 @@ export let foods: Food[] = [
   },
   {
     id: "berry-parfait",
-    image: "https://images.unsplash.com/photo-1543352634-5b9a1a9c8e88?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1494597564530-871f2b93ac55?w=800&q=80",
     categories: ["breakfast", "healthy"],
     name: { uz: "Rezavor parfe", ru: "Ягодный парфе", en: "Berry Parfait" },
     short: { uz: "Yogurt, granola va rezavor", ru: "Йогурт, гранола и ягоды", en: "Yogurt, granola and berries" },
@@ -618,7 +618,7 @@ export let foods: Food[] = [
   {
     id: "uzbek-manti",
     recommendedSaladId: "spring-salad", recommendedSideId: "green-tea-lemon",
-    image: "https://images.unsplash.com/photo-1543352634-5b9a1a9c8e88?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&q=80",
     categories: ["uzbek", "protein", "lunch", "dinner"],
     name: { uz: "O'zbek mantisi", ru: "Узбекские манты", en: "Uzbek Manti (Dumplings)" },
     short: { uz: "Go'shtli bug'da pishirilgan hamirli taom", ru: "Мясные паровые пельмени", en: "Steamed meat dumplings" },
@@ -831,7 +831,7 @@ export let foods: Food[] = [
   // ─── DETOKS / FOYDALI OZDIRUV TAOMLAR ───────────────────────────────────
   {
     id: "detox-green-bowl",
-    image: "https://images.unsplash.com/photo-1543352634-5b9a1a9c8e88?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80",
     categories: ["weightloss", "vegetarian", "healthy", "breakfast"],
     name: { uz: "Detoks yashil bowl", ru: "Детокс-боул зелёный", en: "Detox Green Bowl" },
     short: { uz: "Organizmni tozalovchi superfood bowl", ru: "Суперфуд боул для очищения организма", en: "Superfood bowl to detoxify the body" },
@@ -865,7 +865,7 @@ export let foods: Food[] = [
   },
   {
     id: "protein-detox-salad",
-    image: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?w=800&q=80",
     categories: ["weightloss", "protein", "healthy", "lunch"],
     name: { uz: "Protein detoks salati", ru: "Протеиновый детокс-салат", en: "Protein Detox Salad" },
     short: { uz: "Yuqori oqsil va tozalovchi ingredients", ru: "Высокий белок и очищающие ингредиенты", en: "High protein and cleansing ingredients" },
@@ -899,7 +899,7 @@ export let foods: Food[] = [
   },
   {
     id: "morning-detox-smoothie",
-    image: "https://images.unsplash.com/photo-1523986371872-9d3ba2e2f74d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=800&q=80",
     categories: ["weightloss", "breakfast", "vegetarian"],
     name: { uz: "Ertalabki detoks smoothie", ru: "Утренний детокс-смузи", en: "Morning Detox Smoothie" },
     short: { uz: "Uyqusizlik va toksinsizlantiruvchi ichimlik", ru: "Напиток от усталости и детокс", en: "Wake-up and detox drink" },

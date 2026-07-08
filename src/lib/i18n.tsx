@@ -11,6 +11,9 @@ export const LANGS: { code: Lang; label: string; flag: string }[] = [
 type Dict = Record<string, string>;
 
 const uz: Dict = {
+  "site.name": "To'g'ri Ovqatlanish",
+  "site.title": "To'g'ri Ovqatlanish Siri — Premium sog'lom hayot platformasi",
+  "site.tagline": "Sog'lom hayot — to'g'ri tanlov!",
   "nav.home": "Bosh sahifa",
   "nav.catalog": "Katalog",
   "nav.fridge": "Muzlatgichim",
@@ -183,6 +186,9 @@ const uz: Dict = {
 
 
 const ru: Dict = {
+  "site.name": "Правильное Питание",
+  "site.title": "Секрет Правильного Питания — Премиум платформа здорового образа жизни",
+  "site.tagline": "Здоровая жизнь — правильный выбор!",
   "nav.home": "Главная",
   "nav.catalog": "Каталог",
   "nav.fridge": "Мой холодильник",
@@ -355,6 +361,9 @@ const ru: Dict = {
 
 
 const en: Dict = {
+  "site.name": "Right Nutrition",
+  "site.title": "Right Nutrition Secret — Premium Healthy Living Platform",
+  "site.tagline": "Healthy life — the right choice!",
   "nav.home": "Home",
   "nav.catalog": "Catalog",
   "nav.fridge": "My Fridge",
