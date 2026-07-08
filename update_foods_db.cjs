@@ -58,7 +58,7 @@ Object.keys(imageUpdates).forEach(id => {
 Object.keys(pairings).forEach(id => {
   const pair = pairings[id];
   const pairString = 'recommendedSaladId: "' + pair.salad + '", recommendedSideId: "' + pair.side + '",';
-  
+
   const regex = new RegExp('(id:\\s*"' + id + '",)', 'g');
   code = code.replace(regex, '$1\\n    ' + pairString);
 });

@@ -1,27 +1,3 @@
-import heroImg from "@/assets/hero.jpg";
-import salmonImg from "@/assets/food-salmon.jpg";
-import bowlImg from "@/assets/food-bowl.jpg";
-import chickenImg from "@/assets/food-chicken.jpg";
-import oatmealImg from "@/assets/food-oatmeal.jpg";
-import saladImg from "@/assets/food-salad.jpg";
-import smoothieImg from "@/assets/food-smoothie.jpg";
-import steakImg from "@/assets/food-steak.jpg";
-import sushiImg from "@/assets/food-sushi.jpg";
-import avocadoToastImg from "@/assets/food-avocado-toast.jpg";
-import soupImg from "@/assets/food-soup.jpg";
-import wrapImg from "@/assets/food-wrap.jpg";
-import parfaitImg from "@/assets/food-parfait.jpg";
-// Uzbek dishes
-import plovImg from "@/assets/food-plov.jpg";
-import mantiImg from "@/assets/food-manti.jpg";
-import lagmanImg from "@/assets/food-lagman.jpg";
-import samsaImg from "@/assets/food-samsa.jpg";
-// Turkish dishes
-import adanaKebabImg from "@/assets/food-adana-kebab.jpg";
-import donerImg from "@/assets/food-doner.jpg";
-import menemenImg from "@/assets/food-menemen.jpg";
-// Detox/healthy
-import detoxBowlImg from "@/assets/food-detox-bowl.jpg";
 
 import type { Lang } from "./i18n";
 
@@ -67,7 +43,7 @@ export interface Food {
   recommendedSideId?: string;
 }
 
-export const HERO_IMAGE = heroImg;
+export const HERO_IMAGE = "https://images.unsplash.com/photo-1504674900249-84c02bd5791a?w=1200&q=80";
 
 export const categories: Category[] = [
   { id: "fast", name: { uz: "Tez tayyor", ru: "Быстрые", en: "Fast" }, icon: "⚡", color: "chart-2" },
@@ -159,7 +135,7 @@ export let foods: Food[] = [
   },
   {
     id: "egg-toast",
-    image: avocadoToastImg,
+    image: "https://images.unsplash.com/photo-1584270354949-5e1e9d5d5d8a?w=800&q=80",
     categories: ["fast", "breakfast", "protein"],
     name: { uz: "Tuxumli tost", ru: "Тост с яйцом", en: "Egg Toast" },
     short: { uz: "Qovurilgan non ustida mo'rt tuxum", ru: "Хрустящий тост с яйцом", en: "Crunchy toast with a fried egg" },
@@ -181,7 +157,7 @@ export let foods: Food[] = [
   },
   {
     id: "quick-sandwich",
-    image: wrapImg,
+    image: "https://images.unsplash.com/photo-1562967916-5c5e7c1c1d3e?w=800&q=80",
     categories: ["fast", "protein", "breakfast", "lunch"],
     name: { uz: "Tezkor sandvich", ru: "Быстрый сэндвич", en: "Quick Sandwich" },
     short: { uz: "5 daqiqada tayyor to'yimli sandvich", ru: "Сытный сэндвич за 5 минут", en: "Hearty sandwich in 5 minutes" },
@@ -203,7 +179,7 @@ export let foods: Food[] = [
   },
   {
     id: "instant-oatmeal-cup",
-    image: oatmealImg,
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
     categories: ["fast", "breakfast", "healthy"],
     name: { uz: "Stakanda tayyor suli", ru: "Овсянка в стакане", en: "Instant Oat Cup" },
     short: { uz: "Qaynoq suv bilan 3 daqiqada tayyor", ru: "Готово за 3 минуты с кипятком", en: "Ready in 3 minutes with hot water" },
@@ -225,7 +201,7 @@ export let foods: Food[] = [
   },
   {
     id: "egg-salad-cup",
-    image: saladImg,
+    image: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca9?w=800&q=80",
     categories: ["fast", "protein", "lunch", "healthy"],
     name: { uz: "Tuxumli salat", ru: "Яичный салат", en: "Egg Salad" },
     short: { uz: "Tuxum, sabzavot va mazali sous bilan salat", ru: "Салат с яйцом, овощами и вкусным соусом", en: "Egg, veggie and dressing salad" },
@@ -247,7 +223,7 @@ export let foods: Food[] = [
   },
   {
     id: "peanut-butter-banana",
-    image: smoothieImg,
+    image: "https://images.unsplash.com/photo-1523986371872-9d3ba2e2f74d?w=800&q=80",
     categories: ["fast", "breakfast", "sport", "weightgain"],
     name: { uz: "Yer yong'oq yog'li banan tost", ru: "Тост с арахисовым маслом и бананом", en: "Peanut Butter Banana Toast" },
     short: { uz: "Kaloriyali va mazali tez nonushta", ru: "Калорийный и вкусный быстрый завтрак", en: "Caloric, tasty fast breakfast" },
@@ -269,7 +245,7 @@ export let foods: Food[] = [
   },
   {
     id: "yogurt-fruit-cup",
-    image: parfaitImg,
+    image: "https://images.unsplash.com/photo-1543352634-5b9a1a9c8e88?w=800&q=80",
     categories: ["fast", "breakfast", "healthy"],
     name: { uz: "Yogurt va meva", ru: "Йогурт с фруктами", en: "Yogurt & Fruit Cup" },
     short: { uz: "2 daqiqada tayyor foydali gazak", ru: "Полезный перекус за 2 минуты", en: "Healthy snack in 2 minutes" },
@@ -291,7 +267,7 @@ export let foods: Food[] = [
   },
   {
     id: "tuna-rice-bowl",
-    image: bowlImg,
+    image: "https://images.unsplash.com/photo-1543352634-5b9a1a9c8e88?w=800&q=80",
     categories: ["fast", "protein", "lunch", "sport", "healthy"],
     name: { uz: "Tuna va guruch bowl", ru: "Боул с тунцом и рисом", en: "Tuna Rice Bowl" },
     short: { uz: "Yuqori proteinli tez tushlik bowl", ru: "Высокобелковый быстрый обеденный боул", en: "High-protein quick lunch bowl" },
@@ -353,7 +329,7 @@ export let foods: Food[] = [
   },
   {
     id: "quinoa-bowl",
-    image: bowlImg,
+    image: "https://images.unsplash.com/photo-1543352634-5b9a1a9c8e88?w=800&q=80",
     categories: ["healthy", "vegetarian", "weightloss", "lunch"],
     name: { uz: "Kinoa bowl", ru: "Боул с киноа", en: "Quinoa Bowl" },
     short: { uz: "To'yimli vegetarian taom", ru: "Сытное вегетарианское блюдо", en: "Filling vegetarian meal" },
@@ -402,7 +378,7 @@ export let foods: Food[] = [
   },
   {
     id: "berry-oatmeal",
-    image: oatmealImg,
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
     categories: ["breakfast", "healthy"],
     name: { uz: "Rezavorli suli bo'tqasi", ru: "Овсянка с ягодами", en: "Berry Oatmeal" },
     short: { uz: "Ideal energiyali nonushta", ru: "Идеальный энергичный завтрак", en: "Ideal energizing breakfast" },
@@ -446,7 +422,7 @@ export let foods: Food[] = [
   },
   {
     id: "berry-smoothie",
-    image: smoothieImg,
+    image: "https://images.unsplash.com/photo-1523986371872-9d3ba2e2f74d?w=800&q=80",
     categories: ["breakfast", "sport", "protein", "weightgain"],
     name: { uz: "Rezavor smoothie", ru: "Ягодный смузи", en: "Berry Smoothie" },
     short: { uz: "Tez va to'yimli energiya", ru: "Быстрая и сытная энергия", en: "Quick, filling energy" },
@@ -559,7 +535,7 @@ export let foods: Food[] = [
   },
   {
     id: "chicken-wrap",
-    image: wrapImg,
+    image: "https://images.unsplash.com/photo-1562967916-5c5e7c1c1d3e?w=800&q=80",
     categories: ["fast", "protein", "lunch"],
     name: { uz: "Tovuqli wrap", ru: "Ролл с курицей", en: "Chicken Wrap" },
     short: { uz: "Tez va to'yimli protein taom", ru: "Быстрое и сытное белковое блюдо", en: "Quick and filling protein meal" },
@@ -568,7 +544,7 @@ export let foods: Food[] = [
     description: {
       uz: "Grilda pishirilgan tovuq, yangi sabzavotlar va sous bilan lavash roll — tez tushlik uchun ideal. Lavashni 30 soniya mikroto'lqinli pechda qizdiring — o'rash osonroq bo'ladi va yirtilmaydi.",
       ru: "Ролл из лаваша с курицей на гриле, свежими овощами и соусом. Подогрейте лаваш 30 секунд в микроволновке — легче свернуть и не порвётся.",
-      en: "A flatbread wrap with grilled chicken, fresh vegetables and sauce. Microwave lavash 30 seconds — easier to roll without tearing.",
+      en: "A flatbread wrap with fresh vegetables and sauce. Microwave lavash 30 seconds — easier to roll without tearing.",
     },
     benefits: { uz: ["Tez energiya", "Protein manbai", "To'yimli", "Qulay"], ru: ["Быстрая энергия", "Источник белка", "Сытно", "Удобно"], en: ["Quick energy", "Protein source", "Filling", "Convenient"] },
     forWhom: { uz: "Studentlar, band odamlar", ru: "Студенты, занятые люди", en: "Students, busy people" },
@@ -581,7 +557,7 @@ export let foods: Food[] = [
   },
   {
     id: "berry-parfait",
-    image: parfaitImg,
+    image: "https://images.unsplash.com/photo-1543352634-5b9a1a9c8e88?w=800&q=80",
     categories: ["breakfast", "healthy"],
     name: { uz: "Rezavor parfe", ru: "Ягодный парфе", en: "Berry Parfait" },
     short: { uz: "Yogurt, granola va rezavor", ru: "Йогурт, гранола и ягоды", en: "Yogurt, granola and berries" },
@@ -607,7 +583,7 @@ export let foods: Food[] = [
     id: "uzbek-plov",
     recommendedSaladId: "achchiq-chuchuk", recommendedSideId: "qora-non",
     prepMethod: { uz: "Qovurib pishirilgan", ru: "Жареный и тушеный", en: "Fried and stewed" },
-    image: "https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&q=80",
     categories: ["uzbek", "protein", "lunch", "dinner"],
     name: { uz: "O'zbek plovi", ru: "Узбекский плов", en: "Uzbek Plov (Pilaf)" },
     short: { uz: "An'anaviy o'zbek milliy taomi", ru: "Традиционное узбекское национальное блюдо", en: "Traditional Uzbek national dish" },
@@ -642,7 +618,7 @@ export let foods: Food[] = [
   {
     id: "uzbek-manti",
     recommendedSaladId: "spring-salad", recommendedSideId: "green-tea-lemon",
-    image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1543352634-5b9a1a9c8e88?w=800&q=80",
     categories: ["uzbek", "protein", "lunch", "dinner"],
     name: { uz: "O'zbek mantisi", ru: "Узбекские манты", en: "Uzbek Manti (Dumplings)" },
     short: { uz: "Go'shtli bug'da pishirilgan hamirli taom", ru: "Мясные паровые пельмени", en: "Steamed meat dumplings" },
@@ -677,7 +653,7 @@ export let foods: Food[] = [
   {
     id: "uzbek-lagman",
     recommendedSaladId: "achchiq-chuchuk", recommendedSideId: "qora-non",
-    image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1519621998395-7a5f5b379c71?w=800&q=80",
     categories: ["uzbek", "protein", "lunch"],
     name: { uz: "Lag'mon", ru: "Лагман", en: "Lagman" },
     short: { uz: "Qo'lda cho'zilgan quyuq sho'rva", ru: "Густой суп с тянутой лапшой", en: "Thick pulled-noodle soup" },
@@ -712,7 +688,7 @@ export let foods: Food[] = [
   {
     id: "uzbek-samsa",
     recommendedSaladId: "achchiq-chuchuk", recommendedSideId: "green-tea-lemon",
-    image: "https://images.unsplash.com/photo-1600289031464-74d374b64991?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
     categories: ["uzbek", "fast", "breakfast"],
     name: { uz: "Tandirli samsa", ru: "Самса тандырная", en: "Tandoor Samsa" },
     short: { uz: "Krujkali tandir ko'machi", ru: "Слоёное тандырное тесто с мясом", en: "Flaky tandoor pastry with meat" },
@@ -750,7 +726,7 @@ export let foods: Food[] = [
     id: "adana-kebab",
     recommendedSaladId: "achchiq-chuchuk", recommendedSideId: "qora-non",
     image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=800&q=80",
-    categories: [ "protein", "dinner", "sport"],
+    categories: ["protein", "dinner", "sport"],
     name: { uz: "Adana kebab", ru: "Адана кебаб", en: "Adana Kebab" },
     short: { uz: "O't-qo'shimchali turk kebabi", ru: "Турецкий кебаб с зеленью", en: "Spiced Turkish lamb kebab" },
     calories: 340, protein: 28, fat: 22, carbs: 8, prepTime: 25, price: 2, healthScore: 81, rating: 4.9,
@@ -785,7 +761,7 @@ export let foods: Food[] = [
     id: "doner-kebab",
     recommendedSaladId: "spring-salad", recommendedSideId: "garlic-bread",
     image: "https://images.unsplash.com/photo-1528736235302-52922df5c122?w=800&q=80",
-    categories: [ "fast", "protein", "lunch"],
+    categories: ["fast", "protein", "lunch"],
     name: { uz: "Doner kebab", ru: "Донер кебаб", en: "Doner Kebab" },
     short: { uz: "Turk uslubidagi lavash bilan go'sht", ru: "Мясо в лаваше по-турецки", en: "Turkish-style meat in flatbread" },
     calories: 420, protein: 26, fat: 18, carbs: 40, prepTime: 15, price: 2, healthScore: 72, rating: 4.8,
@@ -820,7 +796,7 @@ export let foods: Food[] = [
     id: "turkish-menemen",
     recommendedSaladId: "spring-salad", recommendedSideId: "qora-non",
     image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=800&q=80",
-    categories: [ "breakfast", "vegetarian", "fast"],
+    categories: ["breakfast", "vegetarian", "fast"],
     name: { uz: "Menemen", ru: "Менемен", en: "Menemen" },
     short: { uz: "Pomidor va qalampirli turk tuxumi", ru: "Турецкая яичница с томатами и перцем", en: "Turkish scrambled eggs with tomato" },
     calories: 185, protein: 12, fat: 12, carbs: 10, prepTime: 15, price: 1, healthScore: 87, rating: 4.7,
@@ -855,8 +831,8 @@ export let foods: Food[] = [
   // ─── DETOKS / FOYDALI OZDIRUV TAOMLAR ───────────────────────────────────
   {
     id: "detox-green-bowl",
-    image: detoxBowlImg,
-    categories: [ "weightloss", "vegetarian", "healthy", "breakfast"],
+    image: "https://images.unsplash.com/photo-1543352634-5b9a1a9c8e88?w=800&q=80",
+    categories: ["weightloss", "vegetarian", "healthy", "breakfast"],
     name: { uz: "Detoks yashil bowl", ru: "Детокс-боул зелёный", en: "Detox Green Bowl" },
     short: { uz: "Organizmni tozalovchi superfood bowl", ru: "Суперфуд боул для очищения организма", en: "Superfood bowl to detoxify the body" },
     calories: 280, protein: 14, fat: 12, carbs: 32, prepTime: 10, price: 2, healthScore: 99, rating: 4.9,
@@ -889,8 +865,8 @@ export let foods: Food[] = [
   },
   {
     id: "protein-detox-salad",
-    image: saladImg,
-    categories: [ "weightloss", "protein", "healthy", "lunch"],
+    image: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=800&q=80",
+    categories: ["weightloss", "protein", "healthy", "lunch"],
     name: { uz: "Protein detoks salati", ru: "Протеиновый детокс-салат", en: "Protein Detox Salad" },
     short: { uz: "Yuqori oqsil va tozalovchi ingredients", ru: "Высокий белок и очищающие ингредиенты", en: "High protein and cleansing ingredients" },
     calories: 245, protein: 22, fat: 10, carbs: 18, prepTime: 12, price: 2, healthScore: 96, rating: 4.7,
@@ -923,8 +899,8 @@ export let foods: Food[] = [
   },
   {
     id: "morning-detox-smoothie",
-    image: smoothieImg,
-    categories: [ "weightloss", "breakfast", "vegetarian"],
+    image: "https://images.unsplash.com/photo-1523986371872-9d3ba2e2f74d?w=800&q=80",
+    categories: ["weightloss", "breakfast", "vegetarian"],
     name: { uz: "Ertalabki detoks smoothie", ru: "Утренний детокс-смузи", en: "Morning Detox Smoothie" },
     short: { uz: "Uyqusizlik va toksinsizlantiruvchi ichimlik", ru: "Напиток от усталости и детокс", en: "Wake-up and detox drink" },
     calories: 145, protein: 4, fat: 3, carbs: 28, prepTime: 5, price: 1, healthScore: 97, rating: 4.8,
@@ -957,8 +933,8 @@ export let foods: Food[] = [
   },
   {
     id: "green-detox-tea",
-    image: parfaitImg,
-    categories: [ "healthy", "drinks", "breakfast"],
+    image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&q=80",
+    categories: ["healthy", "drinks", "breakfast"],
     name: { uz: "Limon va yalpizli yashil choy", ru: "Зеленый чай с лимоном и мятой", en: "Green Tea with Lemon & Mint" },
     short: { uz: "Tinchlantiruvchi va detoks ta'sirga ega choy", ru: "Успокаивающий и детокс зеленый чай", en: "Calming and detoxifying green tea" },
     calories: 5, protein: 0.2, fat: 0.1, carbs: 1.2, prepTime: 5, price: 1, healthScore: 98, rating: 4.8,
@@ -991,8 +967,8 @@ export let foods: Food[] = [
   },
   {
     id: "ginger-lemon-tea",
-    image: smoothieImg,
-    categories: [ "healthy", "drinks", "breakfast"],
+    image: "https://images.unsplash.com/photo-1594761053050-b5ee4347ec97?w=800&q=80",
+    categories: ["healthy", "drinks", "breakfast"],
     name: { uz: "Zanjabilli limon choyi", ru: "Имбирный чай с лимоном", en: "Ginger Lemon Tea" },
     short: { uz: "Immun tizimini mustahkamlovchi issiq ichimlik", ru: "Согревающий иммунный чай", en: "Warming immune-boosting tea" },
     calories: 12, protein: 0.3, fat: 0.1, carbs: 3.0, prepTime: 7, price: 1, healthScore: 97, rating: 4.9,
@@ -1025,7 +1001,7 @@ export let foods: Food[] = [
   },
   {
     id: "protein-banana-shake",
-    image: smoothieImg,
+    image: "https://images.unsplash.com/photo-1577805980153-f8e905d82515?w=800&q=80",
     categories: ["protein", "sport", "drinks", "weightgain", "breakfast"],
     name: { uz: "Bananli proteinli kokteyl", ru: "Банановый протеиновый коктейль", en: "Banana Protein Shake" },
     short: { uz: "Mushaklarni tiklash va o'stirish uchun to'yimli kokteyl", ru: "Питательный коктейль для мышц", en: "Nutritious shake for muscle recovery and growth" },
@@ -1059,7 +1035,7 @@ export let foods: Food[] = [
   },
   {
     id: "berry-protein-shake",
-    image: smoothieImg,
+    image: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=800&q=80",
     categories: ["protein", "sport", "drinks", "healthy", "weightloss"],
     name: { uz: "Rezavorli protein kokteyli", ru: "Ягодный протеиновый коктейль", en: "Berry Protein Shake" },
     short: { uz: "Antioksidantlar va proteinga boy rezavorli kokteyl", ru: "Ягодный протеиновый коктейль с антиоксидантами", en: "Antioxidant and protein-rich berry shake" },
@@ -1093,7 +1069,7 @@ export let foods: Food[] = [
   },
   {
     id: "herbal-relax-tea",
-    image: parfaitImg,
+    image: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=800&q=80",
     categories: ["healthy", "drinks", "dinner"],
     name: { uz: "Moychechakli tinchlantiruvchi choy", ru: "Ромашковый успокаивающий чай", en: "Chamomile Relax Tea" },
     short: { uz: "Uyquni yaxshilovchi tabiiy o'tli choy", ru: "Натуральный травяной чай для улучшения сна", en: "Natural herbal tea for better sleep" },
@@ -1119,222 +1095,222 @@ export let foods: Food[] = [
       ru: ["Сушеные цветки ромашки 1 ст. л.", "Мята 3-4 листика", "Вода 300мл"],
       en: ["Dried chamomile flowers 1 tbsp", "Mint 3-4 leaves", "Water 300ml"]
     },
-      recipe: {
-        uz: ["Choynakni issiq suv bilan chayqang", "Moychechak gullari va yalpizni soling", "Ustidan qaynoq suv quying va 8 daqiqa davomida dam bering", "Suzib olib, issiq holda iching"],
-        ru: ["Ополосните чайник горячей водой", "Положите ромашку и мяту", "Залейте кипятком и настаивайте 8 минут", "Процедите и пейте теплым"],
-        en: ["Rinse teapot with hot water", "Add chamomile flowers and mint", "Pour boiling water over them and steep for 8 minutes", "Strain and enjoy warm"]
-      }
+    recipe: {
+      uz: ["Choynakni issiq suv bilan chayqang", "Moychechak gullari va yalpizni soling", "Ustidan qaynoq suv quying va 8 daqiqa davomida dam bering", "Suzib olib, issiq holda iching"],
+      ru: ["Ополосните чайник горячей водой", "Положите ромашку и мяту", "Залейте кипятком и настаивайте 8 минут", "Процедите и пейте теплым"],
+      en: ["Rinse teapot with hot water", "Add chamomile flowers and mint", "Pour boiling water over them and steep for 8 minutes", "Strain and enjoy warm"]
+    }
+  },
+  {
+    id: "sedana-frittata",
+    image: "https://images.unsplash.com/photo-1558981408-db0ecd8a1ee4?w=800&q=80",
+    categories: ["fast", "breakfast", "vegetarian", "healthy"],
+    name: { uz: "Sedanali ismaloq frittata", ru: "Фриттата со шпинатом и седаной", en: "Spinach & Black Cumin Frittata" },
+    short: { uz: "Sedana va yangi ismaloqli oqsilli nonushta", ru: "Белковый завтрак со шпинатом и седаной", en: "Protein breakfast with spinach and black cumin" },
+    calories: 195, protein: 15, fat: 12, carbs: 3, prepTime: 10, price: 1, healthScore: 95, rating: 4.8,
+    vitamins: ["A", "C", "D", "B12"], minerals: ["Temir", "Selen", "Kaltsiy"],
+    description: {
+      uz: "Tuxum, yangi ismaloq barglari va sedana urug'idan tayyorlangan mazali quymoq. Sedana (qora zira) immunitetni kuchaytirishda dunyoga mashhur. Ismaloq esa temir moddasi bilan boyitadi.",
+      ru: "Пышный омлет из яиц, свежего шпината и семян седаны. Седана (черный тмин) известна своими свойствами для иммунитета.",
+      en: "Fluffy frittata made with eggs, fresh spinach, and black cumin (black seed). Black seed is world-famous for boosting immunity."
     },
-    {
-      id: "sedana-frittata",
-      image: oatmealImg,
-      categories: ["fast", "breakfast", "vegetarian", "healthy"],
-      name: { uz: "Sedanali ismaloq frittata", ru: "Фриттата со шпинатом и седаной", en: "Spinach & Black Cumin Frittata" },
-      short: { uz: "Sedana va yangi ismaloqli oqsilli nonushta", ru: "Белковый завтрак со шпинатом и седаной", en: "Protein breakfast with spinach and black cumin" },
-      calories: 195, protein: 15, fat: 12, carbs: 3, prepTime: 10, price: 1, healthScore: 95, rating: 4.8,
-      vitamins: ["A", "C", "D", "B12"], minerals: ["Temir", "Selen", "Kaltsiy"],
-      description: {
-        uz: "Tuxum, yangi ismaloq barglari va sedana urug'idan tayyorlangan mazali quymoq. Sedana (qora zira) immunitetni kuchaytirishda dunyoga mashhur. Ismaloq esa temir moddasi bilan boyitadi.",
-        ru: "Пышный омлет из яиц, свежего шпината и семян седаны. Седана (черный тмин) известна своими свойствами для иммунитета.",
-        en: "Fluffy frittata made with eggs, fresh spinach, and black cumin (black seed). Black seed is world-famous for boosting immunity."
-      },
-      benefits: {
-        uz: ["Ko'p miqdorda temir", "Antioksidantlar manbai", "Kam kaloriya va to'yimli", "Immunitetni oshiradi"],
-        ru: ["Много железа", "Источник антиоксидантов", "Мало калорий, сытно", "Повышает иммунитет"],
-        en: ["Rich in iron", "Source of antioxidants", "Low calorie yet filling", "Boosts immunity"]
-      },
-      forWhom: { uz: "Sog'lom hayot tarafdorlari, vegetarianlar, sportchilar", ru: "Сторонники ЗОЖ, вегетарианцы, спортсмены", en: "Healthy lifestyle followers, vegetarians, athletes" },
-      notForWhom: { uz: "Tuxumga allergiyasi bo'lganlar", ru: "Аллергики на яйца", en: "Egg allergy sufferers" },
-      whenEat: { uz: "Nonushta", ru: "Завтрак", en: "Breakfast" },
-      dailyRec: { uz: "Haftasiga 3-4 marta, 1 porsiya", ru: "3-4 раза в неделю, 1 порция", en: "3-4 times a week, 1 serving" },
-      storage: { uz: "Muzlatgichda 1 kundan ko'p saqlamang", ru: "Хранить в холодильнике не более 1 дня", en: "Store in fridge for max 1 day" },
-      ingredients: {
-        uz: ["Tuxum 3 dona", "Ismaloq 50g", "Sedana 0.5 choy qoshiq", "Pomidor 1 dona", "Zaytun moyi 1 osh qoshiq"],
-        ru: ["Яйца 3 шт.", "Шпинат 50г", "Седана 0.5 ч.л.", "Помидор 1 шт.", "Оливковое масло 1 ст.л."],
-        en: ["Eggs x3", "Spinach 50g", "Black seed 0.5 tsp", "Tomato x1", "Olive oil 1 tbsp"]
-      },
-      recipe: {
-        uz: ["Tuxumlarni idishda ko'pirtiring", "Tavada zaytun moyida to'g'ralgan pomidor va ismaloqni 1 daqiqa qovuring", "Tuxumni quying va ustiga sedana seping", "Qopqoq ostida past olovda 5 daqiqa pishiring", "Issiq holda torting"],
-        ru: ["Взбейте яйца в миске", "Обжарьте шпинат и помидоры на оливковом масле 1 минуту", "Вылейте яйца, посыпьте седаной", "Готовьте под крышкой 5 минут", "Подавайте горячим"],
-        en: ["Whisk eggs in a bowl", "Sauté chopped spinach and tomatoes in olive oil for 1 minute", "Pour eggs over, sprinkle black seed", "Cook under lid for 5 minutes", "Serve warm"]
-      },
-      ingredientsList: ["tuxum", "ismaloq", "sedana", "pomidor", "zaytun moyi"]
+    benefits: {
+      uz: ["Ko'p miqdorda temir", "Antioksidantlar manbai", "Kam kaloriya va to'yimli", "Immunitetni oshiradi"],
+      ru: ["Много железа", "Источник антиоксидантов", "Мало калорий, сытно", "Повышает иммунитет"],
+      en: ["Rich in iron", "Source of antioxidants", "Low calorie yet filling", "Boosts immunity"]
     },
-    {
-      id: "chicken-avocado-salad",
-      image: chickenImg,
-      categories: ["healthy", "protein", "weightloss", "lunch", "sport"],
-      name: { uz: "Tovuq va avokado salati", ru: "Салат с курицей и авокадо", en: "Chicken & Avocado Salad" },
-      short: { uz: "Parhezbop to'yimli oqsilli salat", ru: "Диетический сытный белковый салат", en: "Dietary, high-protein filling salad" },
-      calories: 290, protein: 24, fat: 16, carbs: 8, prepTime: 12, price: 2, healthScore: 94, rating: 4.9,
-      vitamins: ["B6", "C", "E", "K"], minerals: ["Kaliy", "Magniy", "Folat"],
-      description: {
-        uz: "Tovuq go'shti filesi, yumshoq avokado, shirin pomidor va bodringdan tayyorlanadigan yengil, lekin juda to'yimli salat. Zaytun moyi bilan aralashtiriladi. Sport va parhez uchun eng zo'r yechim.",
-        ru: "Легкий, но сытный салат из куриного филе, мягкого авокадо, спелых томатов и огурцов с оливковым маслом.",
-        en: "A light yet filling salad featuring chicken breast, soft avocado, sweet tomatoes and cucumbers dressed with olive oil."
-      },
-      benefits: {
-        uz: ["Yuqori sifatli toza oqsil", "Avokadodagi foydali yog'lar", "Kam uglevod", "Yurak-qon tomir salomatligi"],
-        ru: ["Высококачественный белок", "Полезные жиры из авокадо", "Мало углеводов", "Здоровье сердца"],
-        en: ["High-quality pure protein", "Healthy fats from avocado", "Low carbohydrate content", "Supports heart health"]
-      },
-      forWhom: { uz: "Sportchilar, ozmoqchi bo'lganlar, diabeti borlar", ru: "Спортсмены, худеющие, люди с диабетом", en: "Athletes, dieters, people with diabetes" },
-      notForWhom: { uz: "Tovuq go'shtiga allergiyasi borlar", ru: "Аллергия на курицу", en: "People allergic to chicken" },
-      whenEat: { uz: "Tushlik yoki kechki ovqat", ru: "Обед или ужин", en: "Lunch or dinner" },
-      dailyRec: { uz: "Kuniga 1 porsiya (200-250g)", ru: "1 порция в день (200-250г)", en: "1 serving daily (200-250g)" },
-      storage: { uz: "Tayyorlangach darhol yeyish tavsiya qilinadi (avokado qorayadi)", ru: "Кушать сразу (авокадо темнеет)", en: "Consume immediately after preparing" },
-      ingredients: {
-        uz: ["Tovuq ko'kragi 150g (pishirilgan)", "Avokado 0.5 dona", "Pomidor 1 dona", "Bodring 1 dona", "Zaytun moyi 1 osh qoshiq", "Limon suvi"],
-        ru: ["Куриная грудка 150г (готовая)", "Авокадо 0.5 шт.", "Помидор 1 шт.", "Огурец 1 шт.", "Оливковое масло 1 ст.л.", "Лимонный сок"],
-        en: ["Chicken breast 150g (cooked)", "Avocado 0.5 pc", "Tomato x1", "Cucumber x1", "Olive oil 1 tbsp", "Lemon juice"]
-      },
-      recipe: {
-        uz: ["Tovuq filesini kubik shaklida to'g'rang", "Avokadoni tozalang va to'g'rab ustidan limon suvi seping", "Pomidor va bodringni maydalang", "Barcha masalliqlarni idishda aralashtiring", "Zaytun moyi va tuz qo'shib torting"],
-        ru: ["Нарежьте курицу кубиками", "Нарежьте авокадо, сбрызните лимоном", "Нарежьте овощи", "Смешайте все в миске", "Полейте оливковым маслом и посолите"],
-        en: ["Cube the cooked chicken breast", "Dice avocado, drizzle with lemon juice to prevent browning", "Slice tomato and cucumber", "Mix all ingredients in a bowl", "Drizzle with olive oil, add salt and serve"]
-      },
-      ingredientsList: ["tovuq", "avokado", "pomidor", "bodring", "zaytun moyi", "limon"]
+    forWhom: { uz: "Sog'lom hayot tarafdorlari, vegetarianlar, sportchilar", ru: "Сторонники ЗОЖ, вегетарианцы, спортсмены", en: "Healthy lifestyle followers, vegetarians, athletes" },
+    notForWhom: { uz: "Tuxumga allergiyasi bo'lganlar", ru: "Аллергики на яйца", en: "Egg allergy sufferers" },
+    whenEat: { uz: "Nonushta", ru: "Завтрак", en: "Breakfast" },
+    dailyRec: { uz: "Haftasiga 3-4 marta, 1 porsiya", ru: "3-4 раза в неделю, 1 порция", en: "3-4 times a week, 1 serving" },
+    storage: { uz: "Muzlatgichda 1 kundan ko'p saqlamang", ru: "Хранить в холодильнике не более 1 дня", en: "Store in fridge for max 1 day" },
+    ingredients: {
+      uz: ["Tuxum 3 dona", "Ismaloq 50g", "Sedana 0.5 choy qoshiq", "Pomidor 1 dona", "Zaytun moyi 1 osh qoshiq"],
+      ru: ["Яйца 3 шт.", "Шпинат 50г", "Седана 0.5 ч.л.", "Помидор 1 шт.", "Оливковое масло 1 ст.л."],
+      en: ["Eggs x3", "Spinach 50g", "Black seed 0.5 tsp", "Tomato x1", "Olive oil 1 tbsp"]
     },
-    {
-      id: "greek-feta-salad",
-      image: saladImg,
-      categories: ["vegetarian", "healthy", "weightloss", "dinner"],
-      name: { uz: "Zaytun va pishloqli Grek salati", ru: "Греческий салат с фетой и маслинами", en: "Greek Salad with Feta & Olives" },
-      short: { uz: "Klassik O'rta yer dengizi parhez salati", ru: "Классический средиземноморский диетический салат", en: "Classic Mediterranean dietary salad" },
-      calories: 160, protein: 5, fat: 12, carbs: 6, prepTime: 8, price: 2, healthScore: 96, rating: 4.7,
-      vitamins: ["C", "A", "E", "K"], minerals: ["Kaltsiy", "Temir", "Kaliy"],
-      description: {
-        uz: "Feta pishlog'i, qora zaytun (oliva), pomidor, bodring va shirin qalampirning o'zaro ajoyib mutanosibligi. Zaytun moyi bilan tayyorlanadigan bu salat ovqat hazm qilish tizimini mukammal tozalaydi.",
-        ru: "Свежий салат с нежным сыром фета, черными маслинами, сочными помидорами, огурцами и оливковым маслом.",
-        en: "Fresh salad featuring soft feta cheese, black olives, juicy tomatoes, cucumbers and olive oil dressing."
-      },
-      benefits: {
-        uz: ["Kalsiy va minerallarga boy", "Hazmni yaxshilaydi", "Kam uglevod, parhezbop", "Terini yoshartiradi"],
-        ru: ["Богат кальцием и минералами", "Улучшает пищеварение", "Мало углеводов", "Омолаживает кожу"],
-        en: ["Rich in calcium and minerals", "Supports healthy digestion", "Low-carb and dietary", "Promotes youthful skin"]
-      },
-      forWhom: { uz: "Vegetarianlar, ozishni istaganlar, yosh bolalar", ru: "Вегетарианцы, худеющие, дети", en: "Vegetarians, weight-watchers, kids" },
-      notForWhom: { uz: "Tuz iste'molini cheklaganlar (feta pishlog'i sho'r)", ru: "Люди на бессолевой диете", en: "People on a low-sodium diet" },
-      whenEat: { uz: "Kechki ovqat yoki go'shtli taomlar yonida", ru: "Ужин или гарнир к мясу", en: "Dinner or side for meat dishes" },
-      dailyRec: { uz: "Kuniga 1 porsiya (200g)", ru: "1 порция в день (200г)", en: "1 serving daily (200g)" },
-      storage: { uz: "Muzlatgichda 1 kun saqlash mumkin", ru: "В холодильнике до 1 дня", en: "Store in fridge up to 1 day" },
-      ingredients: {
-        uz: ["Feta pishloq 80g", "Zaytun 10 dona", "Pomidor 1 dona", "Bodring 1 dona", "Bolg'or qalampiri 1 dona", "Zaytun moyi 1 osh qoshiq"],
-        ru: ["Сыр фета 80г", "Маслины 10 шт.", "Помидор 1 шт.", "Огурец 1 шт.", "Болгарский перец 1 шт.", "Оливковое масло 1 ст.л."],
-        en: ["Feta cheese 80g", "Olives x10", "Tomato x1", "Cucumber x1", "Bell pepper x1", "Olive oil 1 tbsp"]
-      },
-      recipe: {
-        uz: ["Pomidor, bodring va bolg'or qalampirini yirikroq bo'laklang", "Ularni idishga solib zaytunlar va zaytun moyi bilan aralashtiring", "Feta pishlog'ini to'rtburchak kesib salat ustiga qo'ying", "Ustiga rayhon yoki oregano seping", "Aralashtirmasdan torting"],
-        ru: ["Крупно нарежьте овощи", "Смешайте в миске с маслинами и оливковым маслом", "Нарежьте фету кубиками и выложите сверху", "Посыпьте орегано", "Подавайте не перемешивая"],
-        en: ["Chop tomatoes, cucumbers and bell pepper into large pieces", "Mix in a bowl with olives and olive oil", "Cube feta cheese and place on top", "Sprinkle with oregano", "Serve without mixing"]
-      },
-      ingredientsList: ["pishloq", "zaytun", "pomidor", "bodring", "qalampir", "zaytun moyi"]
+    recipe: {
+      uz: ["Tuxumlarni idishda ko'pirtiring", "Tavada zaytun moyida to'g'ralgan pomidor va ismaloqni 1 daqiqa qovuring", "Tuxumni quying va ustiga sedana seping", "Qopqoq ostida past olovda 5 daqiqa pishiring", "Issiq holda torting"],
+      ru: ["Взбейте яйца в миске", "Обжарьте шпинат и помидоры на оливковом масле 1 минуту", "Вылейте яйца, посыпьте седаной", "Готовьте под крышкой 5 минут", "Подавайте горячим"],
+      en: ["Whisk eggs in a bowl", "Sauté chopped spinach and tomatoes in olive oil for 1 minute", "Pour eggs over, sprinkle black seed", "Cook under lid for 5 minutes", "Serve warm"]
     },
-    {
-      id: "fit-rice-chicken",
-      image: bowlImg,
-      categories: ["protein", "sport", "lunch", "weightgain"],
-      name: { uz: "Fit-Osh (Tovuqli parhez guruch)", ru: "Фит-Плов (Диетический рис с курицей)", en: "Fit-Rice with Chicken & Veggies" },
-      short: { uz: "Kam yog'li to'yimli oqsilli guruch", ru: "Низкожировой сытный рис с курицей", en: "Lean and filling chicken rice" },
-      calories: 380, protein: 28, fat: 8, carbs: 48, prepTime: 25, price: 2, healthScore: 89, rating: 4.8,
-      vitamins: ["B1", "B6", "B12"], minerals: ["Temir", "Magniy", "Rux"],
-      description: {
-        uz: "An'anaviy palovning yengillashtirilgan va parhezbop shakli. Qo'y go'shti o'rniga tovuq filesi, guruch va ko'p miqdorda sabzi, piyoz qo'shib juda kam zaytun moyida pishiriladi.",
-        ru: "Облегченная и диетическая версия плова. Куриное филе вместо баранины, рис, обилие моркови и минимум оливкового масла.",
-        en: "A lighter, diet-friendly version of pilaf. Uses chicken breast instead of lamb, cooked with rice, carrots, onions, and minimal olive oil."
-      },
-      benefits: {
-        uz: ["Ozishga yordam beruvchi to'g'ri uglevod", "Mushak massasini oshiradi", "Hazm qilish juda oson", "Yog' miqdori minimal"],
-        ru: ["Правильные углеводы для похудения", "Увеличивает мышечную массу", "Легко усваивается", "Минимум жира"],
-        en: ["Complex carbs for clean energy", "Builds lean muscle", "Very easy to digest", "Minimal fat content"]
-      },
-      forWhom: { uz: "Sportchilar, vazn olmoqchilar yoki faol ishchilar", ru: "Спортсмены, набирающие вес, активные люди", en: "Athletes, muscle builders, active workers" },
-      notForWhom: { uz: "Qat'iy kam uglevodli (keto) dietadagilar", ru: "Люди на строгой безуглеводной (кето) диете", en: "People on a strict low-carb (keto) diet" },
-      whenEat: { uz: "Tushlik", ru: "Обед", en: "Lunch" },
-      dailyRec: { uz: "Kuniga 1 porsiya (250-300g)", ru: "1 порция в день (250-300г)", en: "1 serving daily (250-300g)" },
-      storage: { uz: "Muzlatgichda 2-3 kungacha saqlash mumkin", ru: "В холодильнике до 2-3 дней", en: "Store in fridge up to 2-3 days" },
-      ingredients: {
-        uz: ["Guruch (basmati/jigarrang) 100g", "Tovuq filesi 150g", "Sabzi 1 dona", "Piyoz 1 dona", "Bolg'or qalampiri", "Zaytun moyi 1 choy qoshiq"],
-        ru: ["Рис (басмати/бурый) 100г", "Куриное филе 150г", "Морковь 1 шт.", "Лук 1 шт.", "Болгарский перец", "Оливковое масло 1 ч.л."],
-        en: ["Rice 100g", "Chicken breast 150g", "Carrot x1", "Onion x1", "Bell pepper", "Olive oil 1 tsp"]
-      },
-      recipe: {
-        uz: ["Tovuq filesi va sabzavotlarni to'g'rang", "Tavada zaytun moyida tovuqni 3 daqiqa qovuring", "Piyoz, sabzi va qalampir solib yana 3 daqiqa dimlang", "Guruchni yaxshilab yuvib idishga qo'shing", "Ustiga qaynoq suv quying (1:1.5) va past olovda 15 daqiqa pishiring"],
-        ru: ["Нарежьте курицу и овощи", "Обжарьте курицу в масле 3 минуты", "Добавьте лук, морковь, перец, томите 3 минуты", "Промойте рис, засыпьте сверху", "Залейте кипятком (1:1.5) и варите под крышкой 15 минут"],
-        en: ["Chop chicken breast and vegetables", "Sauté chicken in olive oil for 3 minutes", "Add onion, carrot, and pepper, cook for 3 minutes", "Wash rice, add to the pan", "Pour hot water (1:1.5 ratio) and cook covered on low heat for 15 minutes"]
-      },
-      ingredientsList: ["guruch", "tovuq", "sabzi", "piyoz", "qalampir"]
+    ingredientsList: ["tuxum", "ismaloq", "sedana", "pomidor", "zaytun moyi"]
+  },
+  {
+    id: "chicken-avocado-salad",
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80",
+    categories: ["healthy", "protein", "weightloss", "lunch", "sport"],
+    name: { uz: "Tovuq va avokado salati", ru: "Салат с курицей и авокадо", en: "Chicken & Avocado Salad" },
+    short: { uz: "Parhezbop to'yimli oqsilli salat", ru: "Диетический сытный белковый салат", en: "Dietary, high-protein filling salad" },
+    calories: 290, protein: 24, fat: 16, carbs: 8, prepTime: 12, price: 2, healthScore: 94, rating: 4.9,
+    vitamins: ["B6", "C", "E", "K"], minerals: ["Kaliy", "Magniy", "Folat"],
+    description: {
+      uz: "Tovuq go'shti filesi, yumshoq avokado, shirin pomidor va bodringdan tayyorlanadigan yengil, lekin juda to'yimli salat. Zaytun moyi bilan aralashtiriladi. Sport va parhez uchun eng zo'r yechim.",
+      ru: "Легкий, но сытный салат из куриного филе, мягкого авокадо, спелых томатов и огурцов с оливковым маслом.",
+      en: "A light yet filling salad featuring chicken breast, soft avocado, sweet tomatoes and cucumbers dressed with olive oil."
     },
-    {
-      id: "tuna-egg-toast",
-      image: avocadoToastImg,
-      categories: ["breakfast", "protein", "fast"],
-      name: { uz: "Proteinli tuxum va tuna tost", ru: "Тост с яйцом и тунцом", en: "High-Protein Egg & Tuna Toast" },
-      short: { uz: "Tuna va qaynatilgan tuxumli ajoyib tost", ru: "Белковый тост с яйцом и тунцом", en: "Protein-rich egg and tuna toast" },
-      calories: 280, protein: 21, fat: 11, carbs: 24, prepTime: 6, price: 1, healthScore: 92, rating: 4.8,
-      vitamins: ["B12", "D", "A"], minerals: ["Selen", "Temir", "Omega-3"],
-      description: {
-        uz: "Tost nonga yer yong'oq yog'i yoki yengil yogurt surtib, ustiga konservadagi tuna go'shti hamda qaynatilgan tuxum bo'laklari joylanadi. Ertalabki oqsillar zaxirasi uchun juda tez nonushta.",
-        ru: "Тост из цельнозернового хлеба с консервированным тунцом, вареным яйцом и ломтиками помидора.",
-        en: "Whole-grain toast topped with canned tuna, sliced boiled egg and tomato. The perfect fast, protein-packed breakfast."
-      },
-      benefits: {
-        uz: ["Tez tayyorlanadi (6 daqiqa)", "21 gramm toza oqsil", "Omega-3 ko'pligi", "Kun bo'yi to'qlik beradi"],
-        ru: ["Быстро готовить (6 минут)", "21 грамм чистого белка", "Много Омега-3", "Дает сытость на весь день"],
-        en: ["Ready in 6 minutes", "21g of clean protein", "Loaded with Omega-3", "Keeps you full all day"]
-      },
-      forWhom: { uz: "Studentlar, sportchilar, nonushtaga vaqti kam bo'lganlar", ru: "Студенты, спортсмены, занятые люди", en: "Students, athletes, busy people" },
-      notForWhom: { uz: "Baliq yoki tuxumga allergiyasi bo'lganlar", ru: "Аллергики на рыбу или яйца", en: "People allergic to fish or eggs" },
-      whenEat: { uz: "Nonushta yoki jismoniy mashg'ulotdan keyin", ru: "Завтрак или после тренировки", en: "Breakfast or post-workout" },
-      dailyRec: { uz: "Nonushtada 1-2 dona", ru: "1-2 тоста утром", en: "1-2 toasts in the morning" },
-      storage: { uz: "Tayyorlangach darhol yeng", ru: "Кушать сразу", en: "Eat fresh" },
-      ingredients: {
-        uz: ["Non 2 dilim", "Konservalangan tuna 60g", "Tuxum 1 dona", "Pomidor", "Muz salati"],
-        ru: ["Хлеб 2 ломтика", "Консервированный тунец 60г", "Яйцо 1 шт.", "Помидор", "Салат"],
-        en: ["Bread 2 slices", "Canned tuna 60g", "Egg x1", "Tomato", "Lettuce"]
-      },
-      recipe: {
-        uz: ["Nonlarni toster yoki tovada qizdirib oling", "Non ustiga salat bargini qo'ying", "Tuna go'shtini ozgina maydalab nonga yoying", "Qaynatilgan tuxum va pomidor dilimlarini joylang", "Tuz va murch sepib bering"],
-        ru: ["Подсушите хлеб на сковороде", "Положите салатные листья", "Разложите размятый тунец", "Сверху выложите ломтики вареного яйца и помидора", "Посолите, поперчите и подавайте"],
-        en: ["Toast bread in a pan or toaster", "Place lettuce on the toast", "Spread mashed canned tuna evenly", "Top with sliced boiled egg and tomato", "Season with salt, pepper and serve"]
-      },
-      ingredientsList: ["non", "tuxum", "tuna", "pomidor", "salat"]
+    benefits: {
+      uz: ["Yuqori sifatli toza oqsil", "Avokadodagi foydali yog'lar", "Kam uglevod", "Yurak-qon tomir salomatligi"],
+      ru: ["Высококачественный белок", "Полезные жиры из авокадо", "Мало углеводов", "Здоровье сердца"],
+      en: ["High-quality pure protein", "Healthy fats from avocado", "Low carbohydrate content", "Supports heart health"]
     },
-    {
-      id: "immune-detox-tea",
-      image: parfaitImg,
-      categories: ["drinks", "healthy"],
-      name: { uz: "Moychechak va sedana choyi", ru: "Чай с ромашкой и седаной", en: "Chamomile & Black Seed Tea" },
-      short: { uz: "Immunitetni oshiruvchi shifobaxsh choy", ru: "Целебный чай для укрепления иммунитета", en: "Healing tea for immune support" },
-      calories: 5, protein: 0.1, fat: 0.2, carbs: 1, prepTime: 7, price: 1, healthScore: 98, rating: 4.8,
-      vitamins: ["C", "A", "E"], minerals: ["Rux", "Magniy", "Temir"],
-      description: {
-        uz: "Moychechak gullari, qora sedana urug'lari, limon bo'lagi va tabiiy tog' asali qo'shilgan tinchlantiruvchi, immunitetni faollashtiruvchi tabiiy ichimlik.",
-        ru: "Натуральный успокаивающий чай из ромашки, черного тмина, дольки лимона и горного меда.",
-        en: "A soothing, immune-boosting natural infusion of chamomile, black seed (cumin), lemon slices, and raw mountain honey."
-      },
-      benefits: {
-        uz: ["Immunitetni juda kuchli qiladi", "Shamollashni oldini oladi", "Tinchlantiradi, uyquni yaxshilaydi", "Organizmni toksinlardan tozalaydi"],
-        ru: ["Укрепляет иммунитет", "Предотвращает простуду", "Успокаивает и улучшает сон", "Очищает от токсинов"],
-        en: ["Powerful immune support", "Prevents colds and flu", "Calms nerves and aids sleep", "Detoxifies the body"]
-      },
-      forWhom: { uz: "Tez-tez shamollaydiganlar, charchoq sezganlar", ru: "Часто простужающиеся люди, утомленные", en: "People prone to colds, feeling fatigued" },
-      notForWhom: { uz: "Limon yoki asalga allergiyasi borlar", ru: "Аллергики на мед или лимон", en: "People allergic to honey or lemon" },
-      whenEat: { uz: "Kechki payt yoki kun davomida", ru: "Вечером или в течение дня", en: "Evening or during the day" },
-      dailyRec: { uz: "Kuniga 1-2 stakan", ru: "1-2 чашки в день", en: "1-2 cups daily" },
-      storage: { uz: "Damlangach 2 soat ichida iching", ru: "Пить в течение 2 часов после заварки", en: "Drink within 2 hours of brewing" },
-      ingredients: {
-        uz: ["Moychechak gullari 1 osh qoshiq", "Qora sedana (urug'i) 0.5 choy qoshiq", "Limon 1 tilim", "Asal 1 choy qoshiq", "Suv 300ml"],
-        ru: ["Цветки ромашки 1 ст.л.", "Черный тмин 0.5 ч.л.", "Лимон 1 долька", "Мед 1 ч.л.", "Вода 300мл"],
-        en: ["Chamomile flowers 1 tbsp", "Black seed 0.5 tsp", "Lemon 1 slice", "Honey 1 tsp", "Water 300ml"]
-      },
-      recipe: {
-        uz: ["Idishga moychechak va sedanani soling", "Ustidan 90-95°C dagi qaynoq suv quying", "5-7 daqiqa yopiq holda dam bering", "Choyni suzib oling, limon va asal qo'shib aralashtiring", "Issiq holda iching"],
-        ru: ["Насыпьте ромашку и тмин в заварник", "Залейте горячей водой (90-95°C)", "Настаивайте 5-7 минут", "Процедите, добавьте лимон и мед", "Пейте теплым"],
-        en: ["Put chamomile and black seed in a teapot", "Pour hot water (90-95°C) over them", "Steep covered for 5-7 minutes", "Strain, add lemon slice and honey, stir well", "Enjoy warm"]
-      },
-      ingredientsList: ["moychechak", "sedana", "limon", "asal"]
+    forWhom: { uz: "Sportchilar, ozmoqchi bo'lganlar, diabeti borlar", ru: "Спортсмены, худеющие, люди с диабетом", en: "Athletes, dieters, people with diabetes" },
+    notForWhom: { uz: "Tovuq go'shtiga allergiyasi borlar", ru: "Аллергия на курицу", en: "People allergic to chicken" },
+    whenEat: { uz: "Tushlik yoki kechki ovqat", ru: "Обед или ужин", en: "Lunch or dinner" },
+    dailyRec: { uz: "Kuniga 1 porsiya (200-250g)", ru: "1 порция в день (200-250г)", en: "1 serving daily (200-250g)" },
+    storage: { uz: "Tayyorlangach darhol yeyish tavsiya qilinadi (avokado qorayadi)", ru: "Кушать сразу (авокадо темнеет)", en: "Consume immediately after preparing" },
+    ingredients: {
+      uz: ["Tovuq ko'kragi 150g (pishirilgan)", "Avokado 0.5 dona", "Pomidor 1 dona", "Bodring 1 dona", "Zaytun moyi 1 osh qoshiq", "Limon suvi"],
+      ru: ["Куриная грудка 150г (готовая)", "Авокадо 0.5 шт.", "Помидор 1 шт.", "Огурец 1 шт.", "Оливковое масло 1 ст.л.", "Лимонный сок"],
+      en: ["Chicken breast 150g (cooked)", "Avocado 0.5 pc", "Tomato x1", "Cucumber x1", "Olive oil 1 tbsp", "Lemon juice"]
     },
+    recipe: {
+      uz: ["Tovuq filesini kubik shaklida to'g'rang", "Avokadoni tozalang va to'g'rab ustidan limon suvi seping", "Pomidor va bodringni maydalang", "Barcha masalliqlarni idishda aralashtiring", "Zaytun moyi va tuz qo'shib torting"],
+      ru: ["Нарежьте курицу кубиками", "Нарежьте авокадо, сбрызните лимоном", "Нарежьте овощи", "Смешайте все в миске", "Полейте оливковым маслом и посолите"],
+      en: ["Cube the cooked chicken breast", "Dice avocado, drizzle with lemon juice to prevent browning", "Slice tomato and cucumber", "Mix all ingredients in a bowl", "Drizzle with olive oil, add salt and serve"]
+    },
+    ingredientsList: ["tovuq", "avokado", "pomidor", "bodring", "zaytun moyi", "limon"]
+  },
+  {
+    id: "greek-feta-salad",
+    image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=80",
+    categories: ["vegetarian", "healthy", "weightloss", "dinner"],
+    name: { uz: "Zaytun va pishloqli Grek salati", ru: "Греческий салат с фетой и маслинами", en: "Greek Salad with Feta & Olives" },
+    short: { uz: "Klassik O'rta yer dengizi parhez salati", ru: "Классический средиземноморский диетический салат", en: "Classic Mediterranean dietary salad" },
+    calories: 160, protein: 5, fat: 12, carbs: 6, prepTime: 8, price: 2, healthScore: 96, rating: 4.7,
+    vitamins: ["C", "A", "E", "K"], minerals: ["Kaltsiy", "Temir", "Kaliy"],
+    description: {
+      uz: "Feta pishlog'i, qora zaytun (oliva), pomidor, bodring va shirin qalampirning o'zaro ajoyib mutanosibligi. Zaytun moyi bilan tayyorlanadigan bu salat ovqat hazm qilish tizimini mukammal tozalaydi.",
+      ru: "Свежий салат с нежным сыром фета, черными маслинами, сочными помидорами, огурцами и оливковым маслом.",
+      en: "Fresh salad featuring soft feta cheese, black olives, juicy tomatoes, cucumbers and olive oil dressing."
+    },
+    benefits: {
+      uz: ["Kalsiy va minerallarga boy", "Hazmni yaxshilaydi", "Kam uglevod, parhezbop", "Terini yoshartiradi"],
+      ru: ["Богат кальцием и минералами", "Улучшает пищеварение", "Мало углеводов", "Омолаживает кожу"],
+      en: ["Rich in calcium and minerals", "Supports healthy digestion", "Low-carb and dietary", "Promotes youthful skin"]
+    },
+    forWhom: { uz: "Vegetarianlar, ozishni istaganlar, yosh bolalar", ru: "Вегетарианцы, худеющие, дети", en: "Vegetarians, weight-watchers, kids" },
+    notForWhom: { uz: "Tuz iste'molini cheklaganlar (feta pishlog'i sho'r)", ru: "Люди на бессолевой диете", en: "People on a low-sodium diet" },
+    whenEat: { uz: "Kechki ovqat yoki go'shtli taomlar yonida", ru: "Ужин или гарнир к мясу", en: "Dinner or side for meat dishes" },
+    dailyRec: { uz: "Kuniga 1 porsiya (200g)", ru: "1 порция в день (200г)", en: "1 serving daily (200g)" },
+    storage: { uz: "Muzlatgichda 1 kun saqlash mumkin", ru: "В холодильнике до 1 дня", en: "Store in fridge up to 1 day" },
+    ingredients: {
+      uz: ["Feta pishloq 80g", "Zaytun 10 dona", "Pomidor 1 dona", "Bodring 1 dona", "Bolg'or qalampiri 1 dona", "Zaytun moyi 1 osh qoshiq"],
+      ru: ["Сыр фета 80г", "Маслины 10 шт.", "Помидор 1 шт.", "Огурец 1 шт.", "Болгарский перец 1 шт.", "Оливковое масло 1 ст.л."],
+      en: ["Feta cheese 80g", "Olives x10", "Tomato x1", "Cucumber x1", "Bell pepper x1", "Olive oil 1 tbsp"]
+    },
+    recipe: {
+      uz: ["Pomidor, bodring va bolg'or qalampirini yirikroq bo'laklang", "Ularni idishga solib zaytunlar va zaytun moyi bilan aralashtiring", "Feta pishlog'ini to'rtburchak kesib salat ustiga qo'ying", "Ustiga rayhon yoki oregano seping", "Aralashtirmasdan torting"],
+      ru: ["Крупно нарежьте овощи", "Смешайте в миске с маслинами и оливковым маслом", "Нарежьте фету кубиками и выложите сверху", "Посыпьте орегано", "Подавайте не перемешивая"],
+      en: ["Chop tomatoes, cucumbers and bell pepper into large pieces", "Mix in a bowl with olives and olive oil", "Cube feta cheese and place on top", "Sprinkle with oregano", "Serve without mixing"]
+    },
+    ingredientsList: ["pishloq", "zaytun", "pomidor", "bodring", "qalampir", "zaytun moyi"]
+  },
+  {
+    id: "fit-rice-chicken",
+    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&q=80",
+    categories: ["protein", "sport", "lunch", "weightgain"],
+    name: { uz: "Fit-Osh (Tovuqli parhez guruch)", ru: "Фит-Плов (Диетический рис с курицей)", en: "Fit-Rice with Chicken & Veggies" },
+    short: { uz: "Kam yog'li to'yimli oqsilli guruch", ru: "Низкожировой сытный рис с курицей", en: "Lean and filling chicken rice" },
+    calories: 380, protein: 28, fat: 8, carbs: 48, prepTime: 25, price: 2, healthScore: 89, rating: 4.8,
+    vitamins: ["B1", "B6", "B12"], minerals: ["Temir", "Magniy", "Rux"],
+    description: {
+      uz: "An'anaviy palovning yengillashtirilgan va parhezbop shakli. Qo'y go'shti o'rniga tovuq filesi, guruch va ko'p miqdorda sabzi, piyoz qo'shib juda kam zaytun moyida pishiriladi.",
+      ru: "Облегченная и диетическая версия плова. Куриное филе вместо баранины, рис, обилие моркови и минимум оливкового масла.",
+      en: "A lighter, diet-friendly version of pilaf. Uses chicken breast instead of lamb, cooked with rice, carrots, onions, and minimal olive oil."
+    },
+    benefits: {
+      uz: ["Ozishga yordam beruvchi to'g'ri uglevod", "Mushak massasini oshiradi", "Hazm qilish juda oson", "Yog' miqdori minimal"],
+      ru: ["Правильные углеводы для похудения", "Увеличивает мышечную массу", "Легко усваивается", "Минимум жира"],
+      en: ["Complex carbs for clean energy", "Builds lean muscle", "Very easy to digest", "Minimal fat content"]
+    },
+    forWhom: { uz: "Sportchilar, vazn olmoqchilar yoki faol ishchilar", ru: "Спортсмены, набирающие вес, активные люди", en: "Athletes, muscle builders, active workers" },
+    notForWhom: { uz: "Qat'iy kam uglevodli (keto) dietadagilar", ru: "Люди на строгой безуглеводной (кето) диете", en: "People on a strict low-carb (keto) diet" },
+    whenEat: { uz: "Tushlik", ru: "Обед", en: "Lunch" },
+    dailyRec: { uz: "Kuniga 1 porsiya (250-300g)", ru: "1 порция в день (250-300г)", en: "1 serving daily (250-300g)" },
+    storage: { uz: "Muzlatgichda 2-3 kungacha saqlash mumkin", ru: "В холодильнике до 2-3 дней", en: "Store in fridge up to 2-3 days" },
+    ingredients: {
+      uz: ["Guruch (basmati/jigarrang) 100g", "Tovuq filesi 150g", "Sabzi 1 dona", "Piyoz 1 dona", "Bolg'or qalampiri", "Zaytun moyi 1 choy qoshiq"],
+      ru: ["Рис (басмати/бурый) 100г", "Куриное филе 150г", "Морковь 1 шт.", "Лук 1 шт.", "Болгарский перец", "Оливковое масло 1 ч.л."],
+      en: ["Rice 100g", "Chicken breast 150g", "Carrot x1", "Onion x1", "Bell pepper", "Olive oil 1 tsp"]
+    },
+    recipe: {
+      uz: ["Tovuq filesi va sabzavotlarni to'g'rang", "Tavada zaytun moyida tovuqni 3 daqiqa qovuring", "Piyoz, sabzi va qalampir solib yana 3 daqiqa dimlang", "Guruchni yaxshilab yuvib idishga qo'shing", "Ustiga qaynoq suv quying (1:1.5) va past olovda 15 daqiqa pishiring"],
+      ru: ["Нарежьте курицу и овощи", "Обжарьте курицу в масле 3 минуты", "Добавьте лук, морковь, перец, томите 3 минуты", "Промойте рис, засыпьте сверху", "Залейте кипятком (1:1.5) и варите под крышкой 15 минут"],
+      en: ["Chop chicken breast and vegetables", "Sauté chicken in olive oil for 3 minutes", "Add onion, carrot, and pepper, cook for 3 minutes", "Wash rice, add to the pan", "Pour hot water (1:1.5 ratio) and cook covered on low heat for 15 minutes"]
+    },
+    ingredientsList: ["guruch", "tovuq", "sabzi", "piyoz", "qalampir"]
+  },
+  {
+    id: "tuna-egg-toast",
+    image: "https://images.unsplash.com/photo-1540914124281-342587941389?w=800&q=80",
+    categories: ["breakfast", "protein", "fast"],
+    name: { uz: "Proteinli tuxum va tuna tost", ru: "Тост с яйцом и тунцом", en: "High-Protein Egg & Tuna Toast" },
+    short: { uz: "Tuna va qaynatilgan tuxumli ajoyib tost", ru: "Белковый тост с яйцом и тунцом", en: "Protein-rich egg and tuna toast" },
+    calories: 280, protein: 21, fat: 11, carbs: 24, prepTime: 6, price: 1, healthScore: 92, rating: 4.8,
+    vitamins: ["B12", "D", "A"], minerals: ["Selen", "Temir", "Omega-3"],
+    description: {
+      uz: "Tost nonga yer yong'oq yog'i yoki yengil yogurt surtib, ustiga konservadagi tuna go'shti hamda qaynatilgan tuxum bo'laklari joylanadi. Ertalabki oqsillar zaxirasi uchun juda tez nonushta.",
+      ru: "Тост из цельнозернового хлеба с консервированным тунцом, вареным яйцом и ломтиками помидора.",
+      en: "Whole-grain toast topped with canned tuna, sliced boiled egg and tomato. The perfect fast, protein-packed breakfast."
+    },
+    benefits: {
+      uz: ["Tez tayyorlanadi (6 daqiqa)", "21 gramm toza oqsil", "Omega-3 ko'pligi", "Kun bo'yi to'qlik beradi"],
+      ru: ["Быстро готовить (6 минут)", "21 грамм чистого белка", "Много Омега-3", "Дает сытость на весь день"],
+      en: ["Ready in 6 minutes", "21g of clean protein", "Loaded with Omega-3", "Keeps you full all day"]
+    },
+    forWhom: { uz: "Studentlar, sportchilar, nonushtaga vaqti kam bo'lganlar", ru: "Студенты, спортсмены, занятые люди", en: "Students, athletes, busy people" },
+    notForWhom: { uz: "Baliq yoki tuxumga allergiyasi bo'lganlar", ru: "Аллергики на рыбу или яйца", en: "People allergic to fish or eggs" },
+    whenEat: { uz: "Nonushta yoki jismoniy mashg'ulotdan keyin", ru: "Завтрак или после тренировки", en: "Breakfast or post-workout" },
+    dailyRec: { uz: "Nonushtada 1-2 dona", ru: "1-2 тоста утром", en: "1-2 toasts in the morning" },
+    storage: { uz: "Tayyorlangach darhol yeng", ru: "Кушать сразу", en: "Eat fresh" },
+    ingredients: {
+      uz: ["Non 2 dilim", "Konservalangan tuna 60g", "Tuxum 1 dona", "Pomidor", "Muz salati"],
+      ru: ["Хлеб 2 ломтика", "Консервированный тунец 60г", "Яйцо 1 шт.", "Помидор", "Салат"],
+      en: ["Bread 2 slices", "Canned tuna 60g", "Egg x1", "Tomato", "Lettuce"]
+    },
+    recipe: {
+      uz: ["Nonlarni toster yoki tovada qizdirib oling", "Non ustiga salat bargini qo'ying", "Tuna go'shtini ozgina maydalab nonga yoying", "Qaynatilgan tuxum va pomidor dilimlarini joylang", "Tuz va murch sepib bering"],
+      ru: ["Подсушите хлеб на сковороде", "Положите салатные листья", "Разложите размятый тунец", "Сверху выложите ломтики вареного яйца и помидора", "Посолите, поперчите и подавайте"],
+      en: ["Toast bread in a pan or toaster", "Place lettuce on the toast", "Spread mashed canned tuna evenly", "Top with sliced boiled egg and tomato", "Season with salt, pepper and serve"]
+    },
+    ingredientsList: ["non", "tuxum", "tuna", "pomidor", "salat"]
+  },
+  {
+    id: "immune-detox-tea",
+    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&q=80",
+    categories: ["drinks", "healthy"],
+    name: { uz: "Moychechak va sedana choyi", ru: "Чай с ромашкой и седаной", en: "Chamomile & Black Seed Tea" },
+    short: { uz: "Immunitetni oshiruvchi shifobaxsh choy", ru: "Целебный чай для укрепления иммунитета", en: "Healing tea for immune support" },
+    calories: 5, protein: 0.1, fat: 0.2, carbs: 1, prepTime: 7, price: 1, healthScore: 98, rating: 4.8,
+    vitamins: ["C", "A", "E"], minerals: ["Rux", "Magniy", "Temir"],
+    description: {
+      uz: "Moychechak gullari, qora sedana urug'lari, limon bo'lagi va tabiiy tog' asali qo'shilgan tinchlantiruvchi, immunitetni faollashtiruvchi tabiiy ichimlik.",
+      ru: "Натуральный успокаивающий чай из ромашки, черного тмина, дольки лимона и горного меда.",
+      en: "A soothing, immune-boosting natural infusion of chamomile, black seed (cumin), lemon slices, and raw mountain honey."
+    },
+    benefits: {
+      uz: ["Immunitetni juda kuchli qiladi", "Shamollashni oldini oladi", "Tinchlantiradi, uyquni yaxshilaydi", "Organizmni toksinlardan tozalaydi"],
+      ru: ["Укрепляет иммунитет", "Предотвращает простуду", "Успокаивает и улучшает сон", "Очищает от токсинов"],
+      en: ["Powerful immune support", "Prevents colds and flu", "Calms nerves and aids sleep", "Detoxifies the body"]
+    },
+    forWhom: { uz: "Tez-tez shamollaydiganlar, charchoq sezganlar", ru: "Часто простужающиеся люди, утомленные", en: "People prone to colds, feeling fatigued" },
+    notForWhom: { uz: "Limon yoki asalga allergiyasi borlar", ru: "Аллергики на мед или лимон", en: "People allergic to honey or lemon" },
+    whenEat: { uz: "Kechki payt yoki kun davomida", ru: "Вечером или в течение дня", en: "Evening or during the day" },
+    dailyRec: { uz: "Kuniga 1-2 stakan", ru: "1-2 чашки в день", en: "1-2 cups daily" },
+    storage: { uz: "Damlangach 2 soat ichida iching", ru: "Пить в течение 2 часов после заварки", en: "Drink within 2 hours of brewing" },
+    ingredients: {
+      uz: ["Moychechak gullari 1 osh qoshiq", "Qora sedana (urug'i) 0.5 choy qoshiq", "Limon 1 tilim", "Asal 1 choy qoshiq", "Suv 300ml"],
+      ru: ["Цветки ромашки 1 ст.л.", "Черный тмин 0.5 ч.л.", "Лимон 1 долька", "Мед 1 ч.л.", "Вода 300мл"],
+      en: ["Chamomile flowers 1 tbsp", "Black seed 0.5 tsp", "Lemon 1 slice", "Honey 1 tsp", "Water 300ml"]
+    },
+    recipe: {
+      uz: ["Idishga moychechak va sedanani soling", "Ustidan 90-95°C dagi qaynoq suv quying", "5-7 daqiqa yopiq holda dam bering", "Choyni suzib oling, limon va asal qo'shib aralashtiring", "Issiq holda iching"],
+      ru: ["Насыпьте ромашку и тмин в заварник", "Залейте горячей водой (90-95°C)", "Настаивайте 5-7 минут", "Процедите, добавьте лимон и мед", "Пейте теплым"],
+      en: ["Put chamomile and black seed in a teapot", "Pour hot water (90-95°C) over them", "Steep covered for 5-7 minutes", "Strain, add lemon slice and honey, stir well", "Enjoy warm"]
+    },
+    ingredientsList: ["moychechak", "sedana", "limon", "asal"]
+  },
 
   // ─── SALATLAR ────────────────────────────────────────────────────────────
   {
@@ -1510,7 +1486,7 @@ export let foods: Food[] = [
   },
   {
     id: "protein-shake",
-    image: "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1610970881699-44a5587caaec?w=800&q=80",
     categories: ["drinks", "protein", "sport", "weightgain"],
     name: { uz: "Oqsil kokteyli", ru: "Протеиновый коктейль", en: "Protein Shake" },
     short: { uz: "Sportchilar uchun kuch-quvvat", ru: "Сила для спортсменов", en: "Power for athletes" },
@@ -1699,9 +1675,9 @@ export let foods: Food[] = [
     prepMethod: { uz: "Sovuq tayyorlangan, muzlatilgan", ru: "Холодного приготовления", en: "Cold-prepared, iced" },
   }
 
-  ];
-  
-  // Load from localStorage if on client
+];
+
+// Load from localStorage if on client
 
 if (typeof window !== "undefined") {
   try {
@@ -1822,7 +1798,7 @@ export function getIngredientsList(food: Food): string[] {
       .replace(/(g|ml|dona|osh qoshiq|q\/qoshiq|choy qoshiq|dona|stakan|dilim|boshi|tuxum|kg|ta|dona|foydali|ixtiyoriy|muzlatilgan|yangi|kesilgan|ezilgan|quritilgan|barg)/g, "")
       .replace(/[\(\)\[\]\.,\/#!$%\^&\*;:{}=\-_`~]/g, "")
       .trim();
-    
+
     if (name.includes("tuxum")) return "tuxum";
     if (name.includes("pomidor")) return "pomidor";
     if (name.includes("bodring")) return "bodring";

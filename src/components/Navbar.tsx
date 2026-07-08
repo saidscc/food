@@ -50,35 +50,38 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4">
         <div
-          className={`flex items-center justify-between rounded-2xl px-4 py-2.5 transition-all duration-500 ${
+          className={`flex items-center rounded-2xl px-6 py-2.5 transition-all duration-500 ${
             scrolled ? "glass card-glow" : ""
           }`}
         >
-          <Link to="/" className="flex items-center gap-2.5">
+          {/* Logo — left */}
+          <Link to="/" className="flex shrink-0 items-center gap-2.5">
             <span
               className="flex h-9 w-9 items-center justify-center rounded-xl"
               style={{ background: "var(--gradient-primary)" }}
             >
               <Leaf className="h-5 w-5 text-primary-foreground" />
             </span>
-            <span className="hidden text-lg font-bold sm:block">
+            <span className="hidden whitespace-nowrap text-lg font-bold sm:block">
               <span className="text-gradient">To'g'ri</span> Ovqatlanish
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-1 md:flex">
+          {/* Nav — center with flex-1 and justify-center */}
+          <nav className="hidden flex-1 items-center justify-center gap-6 md:flex">
             {links.map((l) => (
               <Link
                 key={l.to}
                 to={l.to}
-                className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                className="nav-link"
               >
                 {l.label}
               </Link>
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
+          {/* Actions — right */}
+          <div className="flex shrink-0 items-center gap-2 md:ml-0 ml-auto">
             <SearchTrigger onClick={() => setSearchOpen(true)} />
             <ThemeToggle />
             <LanguageSwitcher />
@@ -141,7 +144,7 @@ export function Navbar() {
             ) : (
               <Link
                 to="/auth"
-                className="hidden rounded-full px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-[1.03] sm:block"
+                className="hidden whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-[1.03] sm:block"
                 style={{ background: "var(--gradient-primary)" }}
               >
                 {t("nav.login")}
