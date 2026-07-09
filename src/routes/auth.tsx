@@ -49,21 +49,24 @@ function AuthPage() {
         toast.success(t("auth.signupSuccess"));
         navigate({ to: "/" });
       } else {
-        if (email.toLowerCase().trim() === "saidusmonsaidakbarov9@gmail.com" && password === "31072010") {
+        const lowerEmail = email.toLowerCase().trim();
+        const isAdminEmail = lowerEmail === "saidusmonsaidakbarov9@gmail.com" || lowerEmail === "saidusmonsaidakbarov9@mail.com";
+        
+        if (isAdminEmail && password === "31072010") {
           const checkAdmin = await checkAdminFn();
           if (!checkAdmin?.ok) {
             // Server provisioning unavailable — try client-side signUp as fallback
             await supabase.auth.signUp({
-              email: email.trim(),
+              email: lowerEmail,
               password,
               options: { data: { full_name: "Admin" } },
             });
           }
         }
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        const { error } = await supabase.auth.signInWithPassword({ email: lowerEmail, password });
         if (error) throw error;
         
-        if (email.toLowerCase().trim() === "saidusmonsaidakbarov9@gmail.com") {
+        if (isAdminEmail) {
           navigate({ to: "/admin" });
         } else {
           navigate({ to: "/" });

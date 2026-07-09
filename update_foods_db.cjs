@@ -23,7 +23,7 @@ const imageUpdates = {
   "adana-kebab": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=800&q=80",
   "doner-kebab": "https://images.unsplash.com/photo-1528736235302-52922df5c122?w=800&q=80",
   "turkish-menemen": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=800&q=80",
-  "boiled-eggs": "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?w=800&q=80",
+  "avocado-salmon-toast": "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=800&q=80",
   "scrambled-eggs": "https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=800&q=80",
   "omelette-veggie": "https://images.unsplash.com/photo-1510693206972-df098062cb71?w=800&q=80",
   "green-salad": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80",
@@ -42,7 +42,7 @@ const pairings = {
   "adana-kebab": { salad: "achchiq-chuchuk", side: "qora-non" },
   "doner-kebab": { salad: "spring-salad", side: "garlic-bread" },
   "turkish-menemen": { salad: "spring-salad", side: "qora-non" },
-  "boiled-eggs": { salad: "spring-salad", side: "qora-non" },
+  "avocado-salmon-toast": { salad: "spring-salad", side: "green-tea-lemon" },
   "scrambled-eggs": { salad: "spring-salad", side: "avocado-toast" },
   "omelette-veggie": { salad: "spring-salad", side: "qora-non" },
 };
