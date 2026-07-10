@@ -190,18 +190,15 @@ function Home() {
         <div className="mx-auto max-w-7xl">
           <SectionHead title={t("section.video")} sub={t("section.videoSub")} />
           <Reveal>
-            <div className="glass card-glow group relative overflow-hidden rounded-[2rem]">
-              <img src={foods[0].image} alt="Recipe video" loading="lazy" className="h-[360px] w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105 md:h-[460px]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button className="flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground shadow-2xl transition-transform hover:scale-110" style={{ background: "var(--gradient-primary)" }}>
-                  <Play className="ml-1 h-8 w-8 fill-current" />
-                </button>
-              </div>
-              <div className="absolute bottom-6 left-6 right-6">
-                <h3 className="text-2xl font-bold text-white md:text-3xl">{foods[0].name[lang]}</h3>
-                <p className="mt-1 text-white/80">{foods[0].short[lang]}</p>
-              </div>
+            <div className="glass card-glow group relative overflow-hidden rounded-[2rem] w-full h-[360px] md:h-[460px]">
+              <iframe 
+                src="https://www.youtube.com/embed/9_5wHw6l11o" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full"
+              ></iframe>
             </div>
           </Reveal>
         </div>
