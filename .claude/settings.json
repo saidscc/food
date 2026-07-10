@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(command -v supabase)",
+      "Bash(command -v npx)",
+      "Bash(supabase --version)",
+      "Bash(npx --yes supabase --version)",
+      "Bash(npx --yes supabase projects list)",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" \"https://grvynuxsujlspvxpgqrf.supabase.co/auth/v1/token?grant_type=password\" -H \"apikey: sb_publishable_RwQONO80Y0MeXvKa8SqapQ_mEeagH2E\" -H \"Content-Type: application/json\" -d '{\"email\":\"saidusmonsaidakbarov9@mail.com\",\"password\":\"31072010\"}' --max-time 20)",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" \"https://grvynuxsujlspvxpgqrf.supabase.co/auth/v1/signup\" -H \"apikey: sb_publishable_RwQONO80Y0MeXvKa8SqapQ_mEeagH2E\" -H \"Content-Type: application/json\" -d '{\"email\":\"theshoxjaxon+admin@gmail.com\",\"password\":\"11223344\"}' --max-time 20)",
+      "Bash(npx tsc *)",
+      "Bash(echo \"exit: $?\")"
+    ]
+  }
+}

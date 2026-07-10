@@ -12,13 +12,17 @@ interface AuthContextValue {
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
+export const LOCAL_ADMIN_KEY = "local_admin";
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [localAdmin, setLocalAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLocalAdmin(localStorage.getItem(LOCAL_ADMIN_KEY) === "1");
     const { data: sub } = supabase.auth.onAuthStateChange((_event, s) => {
       setSession(s);
       setUser(s?.user ?? null);
@@ -32,7 +36,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             .maybeSingle()
             .then(({ data }) => {
               const email = s.user?.email || "";
-              const isForceAdmin = email === "saidusmonsaidakbarov9@mail.com" || email === "saidusmonsaidakbarov9@gmail.com";
+              const isForceAdmin = email === "test@gmail.com" || email === "saidusmonsaidakbarov9@mail.com" || email === "saidusmonsaidakbarov9@gmail.com";
               setIsAdmin(isForceAdmin || !!data);
             });
         }, 0);
@@ -53,7 +57,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           .maybeSingle()
           .then(({ data: r }) => {
             const email = data.session?.user?.email || "";
-            const isForceAdmin = email === "saidusmonsaidakbarov9@mail.com" || email === "saidusmonsaidakbarov9@gmail.com";
+            const isForceAdmin = email === "test@gmail.com" || email === "saidusmonsaidakbarov9@mail.com" || email === "saidusmonsaidakbarov9@gmail.com";
             setIsAdmin(isForceAdmin || !!r);
           });
       }
@@ -64,6 +68,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signOut = async () => {
+    localStorage.removeItem(LOCAL_ADMIN_KEY);
+    setLocalAdmin(false);
     await supabase.auth.signOut();
     setUser(null);
     setSession(null);
@@ -71,7 +77,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, session, isAdmin, loading, signOut }}>
+    <AuthContext.Provider value={{ user, session, isAdmin: isAdmin || localAdmin, loading, signOut }}>
       {children}
     </AuthContext.Provider>
   );

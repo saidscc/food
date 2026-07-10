@@ -106,7 +106,7 @@ export const cancelMyOrder = createServerFn({ method: "POST" })
 
 async function assertAdmin(context: { supabase: any; userId: string; claims?: any }) {
   const email = context.claims?.email || "";
-  if (email === "saidusmonsaidakbarov9@mail.com" || email === "saidusmonsaidakbarov9@gmail.com") {
+  if (email === "test@gmail.com" || email === "saidusmonsaidakbarov9@mail.com" || email === "saidusmonsaidakbarov9@gmail.com") {
     return;
   }
   const { data, error } = await context.supabase.rpc("has_role", {
@@ -222,13 +222,16 @@ export const ensureAdminExistsServerFn = createServerFn({ method: "POST" })
   .handler(async () => {
     try {
       const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-      const emails = ["saidusmonsaidakbarov9@mail.com", "saidusmonsaidakbarov9@gmail.com"];
-      const password = "31072010";
+      const admins = [
+        { email: "test@gmail.com", password: "11223344" },
+        { email: "saidusmonsaidakbarov9@mail.com", password: "31072010" },
+        { email: "saidusmonsaidakbarov9@gmail.com", password: "31072010" },
+      ];
 
       const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers();
       if (listError) throw new Error(listError.message);
 
-      for (const email of emails) {
+      for (const { email, password } of admins) {
         console.log("[ensureAdminExists] Check admin user:", email);
         let user = users.find((u) => u.email === email);
         let userId = "";

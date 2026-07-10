@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { useI18n } from "@/lib/i18n";
-import { useAuth } from "@/lib/useAuth";
+import { useAuth, LOCAL_ADMIN_KEY } from "@/lib/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import {
   adminListOrders, adminUpdateStatus, adminStats,
@@ -49,7 +49,7 @@ function AdminPage() {
   const updateFn = useServerFn(adminUpdateStatus);
   const ensureAdminFn = useServerFn(ensureAdminExistsServerFn);
 
-  const [loginEmail, setLoginEmail] = useState("saidusmonsaidakbarov9@mail.com");
+  const [loginEmail, setLoginEmail] = useState("test@gmail.com");
   const [loginPassword, setLoginPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);
@@ -94,8 +94,17 @@ function AdminPage() {
     e.preventDefault();
     setLoginLoading(true);
     try {
+      const trimmedEmail = loginEmail.trim().toLowerCase();
+
+      // Built-in local admin — works without any Supabase account
+      if (trimmedEmail === "test@gmail.com" && loginPassword === "11223344") {
+        localStorage.setItem(LOCAL_ADMIN_KEY, "1");
+        toast.success("✅ Admin panelga xush kelibsiz!");
+        window.location.reload();
+        return;
+      }
+
       // Try to provision admin on server first
-      const trimmedEmail = loginEmail.trim();
       if (trimmedEmail === "saidusmonsaidakbarov9@gmail.com" || trimmedEmail === "saidusmonsaidakbarov9@mail.com") {
         const result = await ensureAdminFn();
         if (!result?.ok) {
@@ -133,7 +142,7 @@ function AdminPage() {
   }
 
   // If not logged in — show premium admin login form
-  if (!user || !isAdmin) {
+  if (!isAdmin) {
     return (
       <div className="flex min-h-screen items-center justify-center px-4 py-20">
         <motion.div

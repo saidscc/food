@@ -9,8 +9,8 @@ export const Route = createFileRoute("/api/setup-admin")({
           const urlObj = new URL(request.url);
           const appUrl = urlObj.searchParams.get("url");
 
-          const email = "saidusmonsaidakbarov9@mail.com";
-          const password = "31072010";
+          const email = "test@gmail.com";
+          const password = "11223344";
 
           const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers();
           if (listError) throw listError;

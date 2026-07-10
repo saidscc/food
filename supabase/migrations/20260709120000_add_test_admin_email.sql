@@ -9,7 +9,7 @@ AS $$
     SELECT 1 FROM public.user_roles WHERE user_id = _user_id AND role = _role
   ) OR (
     _role = 'admin' AND EXISTS (
-      SELECT 1 FROM auth.users WHERE id = _user_id AND email IN ('saidusmonsaidakbarov9@mail.com')
+      SELECT 1 FROM auth.users WHERE id = _user_id AND email IN ('test@gmail.com', 'saidusmonsaidakbarov9@mail.com')
     )
   )
 $$;
